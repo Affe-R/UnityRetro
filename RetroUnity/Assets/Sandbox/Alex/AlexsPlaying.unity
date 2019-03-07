@@ -138,8 +138,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22679779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.47, y: -1.45025, z: 0}
-  m_LocalScale: {x: 40, y: 859.5, z: 1}
+  m_LocalPosition: {x: -2.47, y: -1.4502, z: 0}
+  m_LocalScale: {x: 40, y: 644.625, z: 1}
   m_Children: []
   m_Father: {fileID: 558699604}
   m_RootOrder: 1
@@ -244,7 +244,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533626313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.76, y: 2.46, z: 0}
+  m_LocalPosition: {x: -5.76, y: 1.72, z: 0}
   m_LocalScale: {x: 705.1, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 558699604}
@@ -481,7 +481,9 @@ GameObject:
   - component: {fileID: 1065079282}
   - component: {fileID: 1065079281}
   - component: {fileID: 1065079280}
-  m_Layer: 0
+  - component: {fileID: 1065079284}
+  - component: {fileID: 1065079285}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,6 +599,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1065079284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065079279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92ff4581dae6a714998b8c5c237ef853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  jumpForce: 5
+  jumpAreas:
+    serializedVersion: 2
+    m_Bits: 55
+--- !u!114 &1065079285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065079279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f97db8dcc655d47a473c78fc6df6a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onMove:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1065079284}
+        m_MethodName: Move
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEventVector2, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onJump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1065079284}
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1563793614
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563793614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.76, y: -5.37, z: 0}
+  m_LocalPosition: {x: -5.76, y: -4.68, z: 0}
   m_LocalScale: {x: 705.1, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 558699604}
@@ -811,8 +874,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940998086}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.019691, y: -1.45025, z: 0}
-  m_LocalScale: {x: 40, y: 859.5, z: 1}
+  m_LocalPosition: {x: -9.019691, y: -1.4502, z: 0}
+  m_LocalScale: {x: 40, y: 612.39374, z: 1}
   m_Children: []
   m_Father: {fileID: 558699604}
   m_RootOrder: 0
