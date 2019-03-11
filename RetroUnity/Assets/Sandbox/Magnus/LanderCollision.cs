@@ -8,6 +8,7 @@ public class LanderCollision : MonoBehaviour
     public float groundCheckRadius;
     public float topLandingSpeed;
     public GameObject explosion;
+    public int maxLandAngle;
 
     private Rigidbody2D rb2d;
     private bool grounded = false;
@@ -33,20 +34,20 @@ public class LanderCollision : MonoBehaviour
 
             if (rb2d.velocity.y < -topLandingSpeed)
             {
-                Debug.Log("VERTICAL VELOCITY TO HIGH");
+                Debug.Log("VERTICAL VELOCITY TOO HIGH");
                 Explode();
             }
 
             if (rb2d.velocity.x < -topLandingSpeed)
             {
-                Debug.Log("HORIZONTAL VELOCITY TO HIGH");
+                Debug.Log("HORIZONTAL VELOCITY TOO HIGH");
                 Explode();
             }
 
             //get current rotation
             Vector3 currentEuler = transform.rotation.eulerAngles;
 
-            if (currentEuler.z > 10 && currentEuler.z < 350)
+            if (currentEuler.z > maxLandAngle && currentEuler.z < 360 - maxLandAngle)
             {
                 Debug.Log("ANGLE TOO STEEP");
                 Explode();
