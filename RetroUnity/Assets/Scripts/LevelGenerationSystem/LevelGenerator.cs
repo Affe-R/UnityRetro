@@ -75,7 +75,7 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int x = 0; x < tiles.GetUpperBound(1); x++)
             {
-                LevelTile tile = new LevelTile();
+                LevelTile tile = new LevelTile(new Vector2(x, y));
                 tile.possibleModules = template.tiles;
                 tiles[x, y] = tile;
             }
