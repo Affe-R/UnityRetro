@@ -6,20 +6,24 @@ public class LanderController : MonoBehaviour
     public float thrustForceDown;
     public float thrustForceRotate;
     public Text fuelText;
+    public int startFuel;
+    public Image FuelImage;
 
     private Rigidbody2D rb2d;
-    private int fuel;
+    private float fuel;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        fuel = 150;
+        fuel = startFuel;
         fuelText.text = "Fuel: " + fuel.ToString();
     }
 
     void FixedUpdate()
     {
+
+        FuelImage.fillAmount = fuel / startFuel;
 
         if (Input.GetButton("Horizontal") && fuel > 0)
         {
@@ -42,4 +46,5 @@ public class LanderController : MonoBehaviour
         }
 
     }
+
 }
