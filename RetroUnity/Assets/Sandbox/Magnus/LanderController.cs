@@ -15,7 +15,6 @@ public class LanderController : MonoBehaviour
     private GameObject muzzle;
     private bool isThrusting;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -25,19 +24,9 @@ public class LanderController : MonoBehaviour
 
     void FixedUpdate()
     {
-
         FuelImage.fillAmount = fuel / startFuel;
-
-        if (Input.GetButton("Horizontal"))
-        {
-
-            Rotate(Input.GetAxis("Horizontal"));
-
-        }
-
     }
     
-    // Update is called once per frame
     void Update()
     {
 
@@ -45,9 +34,7 @@ public class LanderController : MonoBehaviour
 
         if (Input.GetButton("Vertical"))
         {
-
             ForwardThrust();
-
         }
 
         fuelText.text = "Fuel: " + fuel.ToString();
@@ -56,13 +43,12 @@ public class LanderController : MonoBehaviour
 
     public void Rotate(float thrustHorizontal)
     {
-        
         if (fuel > 0)
         {
             isThrusting = true;
             rb2d.AddTorque(thrustHorizontal * -thrustForceRotate);
             fuel--;
-            if (muzzle != null) // (muzzle)
+            if (muzzle == null) // (muzzle)
             {
                 muzzle = Instantiate(thrustImage, transform.position, transform.rotation = Quaternion.identity);   // sets rotation to 0
             }
