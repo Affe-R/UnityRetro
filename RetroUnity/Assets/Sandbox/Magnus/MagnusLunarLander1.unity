@@ -816,6 +816,7 @@ MonoBehaviour:
   fuelText: {fileID: 327375608}
   startFuel: 750
   FuelImage: {fileID: 720427252}
+  thrustImage: {fileID: 0}
 --- !u!61 &1609821494
 BoxCollider2D:
   m_ObjectHideFlags: 0

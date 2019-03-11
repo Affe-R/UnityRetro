@@ -8,9 +8,12 @@ public class LanderController : MonoBehaviour
     public Text fuelText;
     public int startFuel;
     public Image FuelImage;
+    public GameObject thrustImage;
 
     private Rigidbody2D rb2d;
     private float fuel;
+    private GameObject muzzle;
+    private bool isThrusting;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +28,11 @@ public class LanderController : MonoBehaviour
 
         FuelImage.fillAmount = fuel / startFuel;
 
-        if (Input.GetButton("Horizontal") && fuel > 0)
+        if (Input.GetButton("Horizontal"))
         {
-            rb2d.AddTorque(Input.GetAxis("Horizontal") * -thrustForceRotate);
-            fuel--;
-            fuelText.text = "Fuel: " + fuel.ToString();
+
+            Rotate(Input.GetAxis("Horizontal"));
+
         }
 
     }
@@ -37,14 +40,51 @@ public class LanderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        isThrusting = false;
+
+        if (Input.GetButton("Vertical"))
+        {
+
+            ForwardThrust();
+
+        }
+
+        fuelText.text = "Fuel: " + fuel.ToString();
+
+    }
+
+    public void Rotate(float thrustHorizontal)
+    {
         
-        if (Input.GetButton("Vertical") && fuel > 0)
+        if (fuel > 0)
+        {
+            isThrusting = true;
+            rb2d.AddTorque(thrustHorizontal * -thrustForceRotate);
+            fuel--;
+            if (muzzle != null) // (muzzle)
+            {
+                muzzle = Instantiate(thrustImage, transform.position, transform.rotation = Quaternion.identity);   // sets rotation to 0
+            }
+        }
+    }
+
+    public void ForwardThrust()
+    {
+        if (fuel > 0)
         {
             rb2d.AddRelativeForce(new Vector2(0, thrustForceDown));
             fuel--;
-            fuelText.text = "Fuel: " + fuel.ToString();
         }
+    }
 
+    public void StopThrusting()
+    {
+        if (muzzle)
+        {
+            isThrusting = false;
+            Destroy(muzzle);
+        }
     }
 
 }
