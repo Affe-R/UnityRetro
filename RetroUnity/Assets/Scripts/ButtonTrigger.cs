@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
 public class ButtonTrigger : MonoBehaviour
 {
+    public UnityEvent ButtonBeginPressed;
+    public UnityEvent ButtonEndPressed;
+    public UnityEvent ButtonTriggered;
     delegate void OnButtonEnter();
     OnButtonEnter onButtonEnter;
     delegate void OnButtonTrigger();
