@@ -6,4 +6,9 @@ using UnityEngine;
 public class LevelGeneratorTemplate : ScriptableObject
 {
     public LevelModule[] tiles;
+
+    public LevelModule GetRandom()
+    {
+        return tiles[Random.Range(0, tiles.Length - 1)];
+    }
 }

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelModule : MonoBehaviour
+[CreateAssetMenu(menuName = "Level/Module")]
+public class LevelModule : ScriptableObject
 {
+    public GameObject go;
     public Sprite sprite;
 
     public LevelModule[] possibleUp;

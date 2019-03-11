@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95f569cfd98f5f4c8e7751863f1b38b, type: 3}
+  m_Name: Sky
+  m_EditorClassIdentifier: 
+  go: {fileID: 2103446478800226674, guid: 4548a3f5daaf4e746baa4508ec0560bb, type: 3}
+  sprite: {fileID: 0}
+  possibleUp:
+  - {fileID: 11400000}
+  possibleDown:
+  - {fileID: 11400000, guid: 2f402a8f090c3f245bacef9e61d229d1, type: 2}
+  - {fileID: 11400000}
+  possibleLeft:
+  - {fileID: 11400000}
+  possibleRight:
+  - {fileID: 11400000}
