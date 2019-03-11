@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class LevelTile
 {
-    public LevelModule[] possibleModules;   // Make this into a list or check number of modules left in another way
+    public List<LevelModule> possibleModules = new List<LevelModule>();   // Make this into a list or check number of modules left in another way
 
     public Vector2Int position = Vector2Int.zero;
 
@@ -26,8 +26,8 @@ public class LevelTile
     public LevelTile(Vector2Int position, LevelModule[] possibleModules)
     {
         this.position = position;
-        this.possibleModules = possibleModules;
-        SpawnTile(Random.Range(0, possibleModules.Length));
+        this.possibleModules.AddRange(possibleModules);
+        // SpawnTile(0);
     }
 
     public void NoName()
@@ -43,79 +43,123 @@ public class LevelTile
             Debug.LogWarning("Out of possible modules. Algorithm failed");
     }
 
-    // Loop through possible modules
-    // Check if the module fits
-
     // Module picked, origin = where the tiles is relative to this tile
     public void SomeonePickedAModule(LevelModule module, Direction origin)
     {
-        switch (origin)
+        for (int i = 0; i < possibleModules.Count; i++)
         {
-            case Direction.Up:
-                for (int i = 0; i < possibleModules.Length; i++)
+            if(possibleModules[i] == null)
+                continue;
+
+            LevelModule[] moduleArray = null;
+
+            switch (origin)
+            {
+                case Direction.Up:
+                    moduleArray = possibleModules[i].possibleUp;
+                    break;
+                case Direction.Right:
+                    moduleArray = possibleModules[i].possibleRight;
+                    break;
+                case Direction.Down:
+                    moduleArray = possibleModules[i].possibleDown;
+                    break;
+                case Direction.Left:
+                    moduleArray = possibleModules[i].possibleLeft;
+                    break;
+            }
+
+            bool matchFound = false;
+            for (int j = 0; j < moduleArray.Length; j++)
+            {
+                if(moduleArray[j] == module)
                 {
-                    // if(possibleModules[i].possibleUp)
+                    matchFound = true;
+                    break;
                 }
-                break;
-            case Direction.Right:
-                break;
-            case Direction.Down:
-                break;
-            case Direction.Left:
-                break;
-        }
-
-        for (int i = 0; i < possibleModules.Length; i++)
-        {
-            if(Contains(possibleModules[i]))
-                break;
+            }
+            if(!matchFound)
+                possibleModules[i] = null;
         }
     }
 
-    public void FilterMatch(LevelModule module)
-    {
-        for (int i = 0; i < possibleModules.Length; i++)
-        {
-            // if(possibleModules[i].possib)
-        }
-    }
+    // public bool Contains(LevelModule module)
+    // {
+    //     for (int i = 0; i < possibleModules.Length; i++)
+    //     {
+    //         if(possibleModules[i] == module)
+    //             return true;
+    //     }
 
-    public bool Contains(LevelModule module)
-    {
-        for (int i = 0; i < possibleModules.Length; i++)
-        {
-            if(possibleModules[i] == module)
-                return true;
-        }
-
-        return false;
-    }
+    //     return false;
+    // }
 
     void SpawnTile(int index)
     {
-        GameObject spawnedTile = GameObject.Instantiate(possibleModules[index].go, (Vector2)position + Vector2.one * .5f, Quaternion.identity);
+        GameObject spawnedTile = GameObject.Instantiate(possibleModules[index].go, (Vector2)position, Quaternion.identity);
         spawnedTile.name = position.ToString();
+
+        tileUp?.SomeonePickedAModule(possibleModules[index], Direction.Down);
+        tileRight?.SomeonePickedAModule(possibleModules[index], Direction.Left);
+        tileDown?.SomeonePickedAModule(possibleModules[index], Direction.Up);
+        tileLeft?.SomeonePickedAModule(possibleModules[index], Direction.Right);
+
     }
 
     int ModulesLeft()
     {
         // Sort while searching
-        int length = 0;
-        for (int i = 0; i < possibleModules.Length; i++)
-        {
-            if(possibleModules[i])
-                length++;
-        }
-        return length;
+        // int length = 0;
+        // for (int i = 0; i < possibleModules.Count; i++)
+        // {
+        //     if(possibleModules[i])
+        //         length++;
+        // }
+        // return length;
+        return possibleModules.Count;
+    }
+
+    int GetFirstModule()
+    {
+        // for (int i = 0; i < possibleModules.Length; i++)
+        // {
+        //     if(possibleModules[i])
+        //         return i;
+        // }
+        // return -1;
+        return 0;
     }
 
     public void RemovePossibleModule(LevelModule module)
     {
-        
+        // Remove Tile
+        possibleModules.Remove(module);
+        // Tell neighbors that the tile has been removed
+        tileUp.RemovePossibleModule(module);
+
     }
 
-    public int GetPossibleTilesCount()
+    public void PickRandom()
     {
-        return possibleModules.Length;
+        int randomIndex = Random.Range(0, possibleModules.Count);
+        for (int i = 0; i < possibleModules.Count; i++)
+        {
+            if(i != randomIndex)
+                possibleModules[i] = null;
+        }
+    }
+
+    public void Collapse()
+    {
+        if(possibleModules.Count > 1)
+            PickRandom();
+        
+        // int firstModuleIndex = GetFirstModule();
+        SpawnTile(0);
+
+        tileUp?.Collapse();
+        tileDown?.Collapse();
+        tileRight?.Collapse();
+        tileLeft?.Collapse();
     }
 }

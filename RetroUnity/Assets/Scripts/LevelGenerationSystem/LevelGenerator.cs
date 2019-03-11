@@ -13,6 +13,7 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         tiles = CreateTiles(size);
+        tiles[0, 0].Collapse();
     }
 
     LevelTile[,] CreateTiles(Vector2Int size)
@@ -61,8 +62,24 @@ public class LevelGenerator : MonoBehaviour
         LevelTile tile = tiles[randomX, randomY];
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(transform.position + (Vector3)((Vector2)size * .5f), (Vector2)size);
+        Gizmos.color = Color.red;
+        // Debug.Log(tiles.GetUpperBound(1));
+
+        for (int y = 0; y < size.y; y++)
+        {
+            for (int x = 0; x < size.x; x++)
+            {
+                LevelTile tile = tiles[x,y];
+                Debug.Log(tile.position + " " + x + " " + y);
+
+                if(tile.tileUp != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileUp.position);
+                if(tile.tileRight != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileRight.position);
+                if(tile.tileDown != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileDown.position);
+                if(tile.tileLeft != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileLeft.position);
+            }
+        }
     }
 }
