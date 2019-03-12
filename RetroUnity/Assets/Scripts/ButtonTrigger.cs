@@ -29,15 +29,14 @@ public class ButtonTrigger : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        
+        if (collision.gameObject.tag == "Player")
         {
+            ButtonBeginPressed?.Invoke();
             onButtonTrigger?.Invoke();
         }
     }
@@ -57,6 +56,5 @@ public class ButtonTrigger : MonoBehaviour
             onButtonExit?.Invoke();
         }
     }
-
 
 }
