@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68592f670fc4cf04f82d0ac962ab8edf, type: 3}
   m_Name: GameState_Playing
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 68b6081c14891b842a492786f4a096a1, type: 3}
+  scene: {fileID: 102900000, guid: 274b01d59abb3284689e9cd68a888895, type: 3}
   timeScale: 1
-  modeBehaviors: []
+  behaviors: []
