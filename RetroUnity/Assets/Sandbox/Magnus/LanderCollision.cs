@@ -65,7 +65,7 @@ public class LanderCollision : MonoBehaviour
 
         void Explode()
         {
-            Instantiate(explosion, transform.position, transform.rotation = Quaternion.identity);   // sets rotation to 0
+            Instantiate(explosion, transform.position, transform.rotation);// = Quaternion.identity);   // sets rotation to 0
             Destroy(gameObject);
         }
     }
