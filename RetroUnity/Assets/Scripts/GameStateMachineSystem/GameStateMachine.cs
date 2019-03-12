@@ -22,7 +22,7 @@ public class GameStateMachine
 
     public void LoadState(GameState state)
     {
-        if(state.scene != null)
+        if(state.scene != null && SceneManager.GetActiveScene().name != state.scene.name)
             SceneManager.LoadScene(state.scene.name);
             
         Time.timeScale = state.timeScale;

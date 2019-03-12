@@ -15,6 +15,8 @@ public class GameState : ScriptableObject
     public void Load()
     {
         this.stateMachine = GameStateMachine.GetInstance();
-        stateMachine.LoadState(this);
+
+        // if(SceneManager.GetActiveScene().ToString() != scene.name)
+            stateMachine.LoadState(this);
     }
 }

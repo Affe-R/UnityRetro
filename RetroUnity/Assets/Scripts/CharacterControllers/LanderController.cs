@@ -22,17 +22,21 @@ public class LanderController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         fuel = startFuel;
-        fuelText.text = "Fuel: " + fuel.ToString();
+        if(fuelText)
+            fuelText.text = "Fuel: " + fuel.ToString();
 
-        muzzleLeft.SetActive(false);
-        muzzleRight.SetActive(false);
-        muzzleDown.SetActive(false);
-
+        if(muzzleLeft)
+            muzzleLeft.SetActive(false);
+        if(muzzleRight)
+            muzzleRight.SetActive(false);
+        if(muzzleDown)
+            muzzleDown.SetActive(false);
     }
 
     void FixedUpdate()
     {
-        FuelImage.fillAmount = fuel / startFuel;
+        if(FuelImage)
+            FuelImage.fillAmount = fuel / startFuel;
     }
     
     void Update()
@@ -48,8 +52,6 @@ public class LanderController : MonoBehaviour
         if (Input.GetButton("Horizontal"))
         {
             Rotate(Input.GetAxis("Horizontal"));
-
-            
         }
 
         if (Input.GetKeyDown("left")) muzzleRight.SetActive(true);
@@ -60,7 +62,8 @@ public class LanderController : MonoBehaviour
         if (Input.GetKeyUp("right")) muzzleLeft.SetActive(false);
         if (Input.GetKeyUp("up")) muzzleDown.SetActive(false);
 
-        fuelText.text = "Fuel: " + fuel.ToString();
+        if(fuelText)
+            fuelText.text = "Fuel: " + fuel.ToString();
 
     }
 
