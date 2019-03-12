@@ -2,62 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class LevelTile
-{
-    public LevelModule[] possibleModules;   // Make this into a list or check number of modules left in another way
-
-    public Vector2Int position = Vector2Int.zero;
-
-    public LevelTile tileUp;
-    public LevelTile tileDown;
-    public LevelTile tileLeft;
-    public LevelTile tileRight;
-
-    public LevelTile(Vector2Int position, LevelModule[] possibleModules)
-    {
-        this.position = position;
-        this.possibleModules = possibleModules;
-        GameObject spawnedTile = GameObject.Instantiate(possibleModules[Random.Range(0, possibleModules.Length - 1)].go, (Vector2)position, Quaternion.identity);
-        spawnedTile.name = position.ToString();
-    }
-
-    public void NoName()
-    {
-        int modulesLeft = ModulesLeft();
-        if(modulesLeft == 1)
-        {
-            GameObject spawnedTile = GameObject.Instantiate(possibleModules[0].go, (Vector2)position, Quaternion.identity);
-            spawnedTile.name = position.ToString();
-
-            // Tell the others that a module has been picked
-        }
-        else if(modulesLeft <= 0)
-            Debug.LogWarning("Out of possible modules. Algorithm failed");
-    }
-
-    int ModulesLeft()
-    {
-        int length = 0;
-        for (int i = 0; i < possibleModules.Length; i++)
-        {
-            if(possibleModules[i])
-                length++;
-        }
-        return length;
-    }
-
-    public void RemovePossibleModule(LevelModule module)
-    {
-        
-    }
-
-    public int GetPossibleTilesCount()
-    {
-        return possibleModules.Length;
-    }
-}
-
 public class LevelGenerator : MonoBehaviour
 {
     public Vector2Int size = Vector2Int.one;
@@ -69,6 +13,7 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         tiles = CreateTiles(size);
+        tiles[0, 0].Collapse();
     }
 
     LevelTile[,] CreateTiles(Vector2Int size)
@@ -117,8 +62,24 @@ public class LevelGenerator : MonoBehaviour
         LevelTile tile = tiles[randomX, randomY];
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireCube(transform.position, (Vector2)size);
+        Gizmos.DrawWireCube(transform.position + (Vector3)((Vector2)size * .5f), (Vector2)size);
+        Gizmos.color = Color.red;
+        // Debug.Log(tiles.GetUpperBound(1));
+
+        for (int y = 0; y < size.y; y++)
+        {
+            for (int x = 0; x < size.x; x++)
+            {
+                LevelTile tile = tiles[x,y];
+                Debug.Log(tile.position + " " + x + " " + y);
+
+                if(tile.tileUp != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileUp.position);
+                if(tile.tileRight != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileRight.position);
+                if(tile.tileDown != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileDown.position);
+                if(tile.tileLeft != null) Gizmos.DrawLine((Vector2)tile.position, (Vector2)tile.tileLeft.position);
+            }
+        }
     }
 }

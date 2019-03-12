@@ -6,14 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class RetroCharacterController : MonoBehaviour
 {
-
-    Rigidbody2D rigidBody;
+    public LayerMask groundMask;
+    Rigidbody2D rb2d;
+    CharacterController characterController;
     float moveHorizontal;
     float moveVertical;
+    Vector2 velocity;
 
     [Header("Character Movement")]
     public float movementSpeed = 3f;
     public float jumpForce = 5f;
+
 
     [Header("Input")]
     public string horizontalAxis = "Horizontal";
@@ -22,35 +25,46 @@ public class RetroCharacterController : MonoBehaviour
 
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
-    
-    void Update()
+
+    private void Update()
     {
         CharacterMovement();
         
     }
+    private void FixedUpdate()
+    {
+        Move();
+    }
 
     void CharacterMovement()
     {
-        if (Input.GetKeyDown(KeyCode.Space)){
+        if (Input.GetButtonDown("Jump")){
             Jump();
         }
+        Debug.DrawRay(transform.position, Vector2.down*0.5f, Color.red);
 
         moveHorizontal = Input.GetAxis(horizontalAxis);
         moveVertical = Input.GetAxis(verticalAxis);
 
-        Vector3 moveSum = new Vector3(moveHorizontal, 0, 0);
+        velocity = new Vector2(moveHorizontal, rb2d.velocity.y);
+        ////transform.Translate(moveSum * movementSpeed * Time.deltaTime, Space.World);
+    }
 
-        transform.Translate(moveSum * movementSpeed * Time.deltaTime, Space.World);
+    void Move()
+    {
+        rb2d.velocity = (velocity * movementSpeed * Time.deltaTime);
     }
 
     void Jump()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down,1f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down,0.5f,groundMask);
         if (hit.collider)
         {
-            rigidBody.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+            Debug.Log("Jumped");
+            rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+            //rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         } else
         {
             Debug.Log("Jump unsuccessful");
