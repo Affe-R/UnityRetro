@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 287385207508924252}
   - component: {fileID: 3893347730471407380}
   - component: {fileID: 1887177794723164771}
+  - component: {fileID: 348512180559254552}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -691,6 +692,29 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &348512180559254552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865597302341577514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3dbc974300c57448ac1fc583851a870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  Mountains:
+    serializedVersion: 2
+    m_Bits: 0
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 0
+  topLandingSpeed: 0
+  explosion: {fileID: 0}
+  maxLandAngle: 0
 --- !u!1 &6865597302447056084
 GameObject:
   m_ObjectHideFlags: 0
