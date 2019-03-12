@@ -49,11 +49,15 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 256
-  movementSpeed: 1000
-  jumpForce: 30
+  interactMask:
+    serializedVersion: 2
+    m_Bits: 0
+  movementSpeed: 5
+  jumpForce: 5
   horizontalAxis: Horizontal
   verticalAxis: Vertical
   jumpButton: Jump
+  interactButton: Interact
 --- !u!212 &7039760239280072426
 SpriteRenderer:
   m_ObjectHideFlags: 0

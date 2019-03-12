@@ -586,6 +586,9 @@ GameObject:
   - component: {fileID: 287385207508924252}
   - component: {fileID: 3893347730471407380}
   - component: {fileID: 1887177794723164771}
+  - component: {fileID: 5318693087666803881}
+  - component: {fileID: 8721253817715543500}
+  - component: {fileID: 9047219053124447449}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -627,6 +630,9 @@ MonoBehaviour:
   fuelText: {fileID: 0}
   startFuel: 200
   FuelImage: {fileID: 0}
+  muzzleLeft: {fileID: 0}
+  muzzleRight: {fileID: 0}
+  muzzleDown: {fileID: 0}
 --- !u!50 &287385207508924252
 Rigidbody2D:
   serializedVersion: 4
@@ -689,6 +695,93 @@ MonoBehaviour:
   OnOutsideBounds:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &5318693087666803881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865597302341577514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9ee04369404ad4f96b0fdeeb3dde80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2bb9e26c61864564a9444bbab52cde9e, type: 2}
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 100963090822646435}
+        m_MethodName: Rotate
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &8721253817715543500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865597302341577514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9ee04369404ad4f96b0fdeeb3dde80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c82aba6d24b0ee54da88d0b13e1c772b, type: 2}
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 100963090822646435}
+        m_MethodName: Rotate
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: -1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &9047219053124447449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865597302341577514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb9ee04369404ad4f96b0fdeeb3dde80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0015c12133815ae499b7016c8165c24e, type: 2}
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 100963090822646435}
+        m_MethodName: ForwardThrust
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &6865597302447056084
@@ -1212,6 +1305,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bb9e26c61864564a9444bbab52cde9e,
+        type: 2}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1287,6 +1411,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: c82aba6d24b0ee54da88d0b13e1c772b,
+        type: 2}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1361,6 +1516,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 0015c12133815ae499b7016c8165c24e,
+        type: 2}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931831, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: ButtonTriggered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}

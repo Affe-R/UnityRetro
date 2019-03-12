@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class LanderCollision : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LanderCollision : MonoBehaviour
     public float topLandingSpeed;
     public GameObject explosion;
     public int maxLandAngle;
+    public UnityEvent onSuccesfulLanding;
+    public UnityEvent onCrash;
 
     private Rigidbody2D rb2d;
     private bool grounded = false;
@@ -65,6 +68,9 @@ public class LanderCollision : MonoBehaviour
 
         void Explode()
         {
+
+            onCrash.Invoke();
+
             Instantiate(explosion, transform.position, transform.rotation);// = Quaternion.identity);   // sets rotation to 0
             Destroy(gameObject);
         }
