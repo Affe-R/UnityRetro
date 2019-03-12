@@ -8,7 +8,10 @@ public class LanderController : MonoBehaviour
     public Text fuelText;
     public int startFuel;
     public Image FuelImage;
-    public GameObject thrustImage;
+    //public GameObject thrustImage;
+    public GameObject muzzleLeft;
+    public GameObject muzzleRight;
+    public GameObject muzzleDown;
 
     private Rigidbody2D rb2d;
     private float fuel;
@@ -20,6 +23,11 @@ public class LanderController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         fuel = startFuel;
         fuelText.text = "Fuel: " + fuel.ToString();
+
+        muzzleLeft.SetActive(false);
+        muzzleRight.SetActive(false);
+        muzzleDown.SetActive(false);
+
     }
 
     void FixedUpdate()
@@ -37,6 +45,21 @@ public class LanderController : MonoBehaviour
             ForwardThrust();
         }
 
+        if (Input.GetButton("Horizontal"))
+        {
+            Rotate(Input.GetAxis("Horizontal"));
+
+            
+        }
+
+        if (Input.GetKeyDown("left")) muzzleRight.SetActive(true);
+        if (Input.GetKeyDown("right")) muzzleLeft.SetActive(true);
+        if (Input.GetKeyDown("up")) muzzleDown.SetActive(true);
+
+        if (Input.GetKeyUp("left")) muzzleRight.SetActive(false);
+        if (Input.GetKeyUp("right")) muzzleLeft.SetActive(false);
+        if (Input.GetKeyUp("up")) muzzleDown.SetActive(false);
+
         fuelText.text = "Fuel: " + fuel.ToString();
 
     }
@@ -48,10 +71,6 @@ public class LanderController : MonoBehaviour
             isThrusting = true;
             rb2d.AddTorque(thrustHorizontal * -thrustForceRotate);
             fuel--;
-            if (muzzle == null) // (muzzle)
-            {
-                muzzle = Instantiate(thrustImage, transform.position, transform.rotation = Quaternion.identity);   // sets rotation to 0
-            }
         }
     }
 
