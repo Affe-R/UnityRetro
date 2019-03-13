@@ -148,6 +148,7 @@ MonoBehaviour:
   topLandingSpeed: 0.5
   explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   maxLandAngle: 0
+  maxLandingVelocityMagnitude: 0
   onSuccesfulLanding:
     m_PersistentCalls:
       m_Calls: []

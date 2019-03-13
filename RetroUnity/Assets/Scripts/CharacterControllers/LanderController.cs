@@ -15,8 +15,8 @@ public class LanderController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private float fuel;
-    private GameObject muzzle;
-    private bool isThrusting;
+    //private GameObject muzzle;
+    //private bool isThrusting;
 
     void Start()
     {
@@ -25,11 +25,11 @@ public class LanderController : MonoBehaviour
         if(fuelText)
             fuelText.text = "Fuel: " + fuel.ToString();
 
-        if(muzzleLeft)
+        if (muzzleLeft)
             muzzleLeft.SetActive(false);
-        if(muzzleRight)
+        if (muzzleRight)
             muzzleRight.SetActive(false);
-        if(muzzleDown)
+        if (muzzleDown)
             muzzleDown.SetActive(false);
     }
 
@@ -42,28 +42,30 @@ public class LanderController : MonoBehaviour
     void Update()
     {
 
-        isThrusting = false;
+        //isThrusting = false;
 
-        if (Input.GetButton("Vertical"))
-        {
-            ForwardThrust();
-        }
+        //if (Input.GetButton("Vertical"))
+        //{
+        //    ForwardThrust();
+        //}
 
-        if (Input.GetButton("Horizontal"))
-        {
-            Rotate(Input.GetAxis("Horizontal"));
-        }
+        //if (Input.GetButton("Horizontal"))
+        //{
+        //    Rotate(Input.GetAxis("Horizontal"));
+        //}
 
-        if (Input.GetKeyDown("left")) muzzleRight.SetActive(true);
-        if (Input.GetKeyDown("right")) muzzleLeft.SetActive(true);
-        if (Input.GetKeyDown("up")) muzzleDown.SetActive(true);
+        //if (Input.GetKeyDown("left")) muzzleRight.SetActive(true);
+        //if (Input.GetKeyDown("right")) muzzleLeft.SetActive(true);
+        //if (Input.GetKeyDown("up")) muzzleDown.SetActive(true);
 
-        if (Input.GetKeyUp("left")) muzzleRight.SetActive(false);
-        if (Input.GetKeyUp("right")) muzzleLeft.SetActive(false);
-        if (Input.GetKeyUp("up")) muzzleDown.SetActive(false);
+        //if (Input.GetKeyUp("left")) muzzleRight.SetActive(false);
+        //if (Input.GetKeyUp("right")) muzzleLeft.SetActive(false);
+        //if (Input.GetKeyUp("up")) muzzleDown.SetActive(false);
 
         if(fuelText)
             fuelText.text = "Fuel: " + fuel.ToString();
+
+       
 
     }
 
@@ -71,9 +73,15 @@ public class LanderController : MonoBehaviour
     {
         if (fuel > 0)
         {
-            isThrusting = true;
+            //isThrusting = true;
             rb2d.AddTorque(thrustHorizontal * -thrustForceRotate);
             fuel--;
+
+            // aktivera thrust flames
+            if (thrustHorizontal > 0)
+                muzzleLeft.SetActive(true);
+            if (thrustHorizontal < 0)
+                muzzleRight.SetActive(true);
         }
     }
 
@@ -83,16 +91,17 @@ public class LanderController : MonoBehaviour
         {
             rb2d.AddRelativeForce(new Vector2(0, thrustForceDown));
             fuel--;
+            muzzleDown.SetActive(true);
         }
     }
 
-    public void StopThrusting()
-    {
-        if (muzzle)
-        {
-            isThrusting = false;
-            Destroy(muzzle);
-        }
-    }
+    //public void StopThrusting()
+    //{
+    //    if (muzzle)
+    //    {
+    //        isThrusting = false;
+    //        Destroy(muzzle);
+    //    }
+    //}
 
 }
