@@ -11,7 +11,7 @@ public class InputButton
 
     public void Update()
     {
-        if(Input.GetButtonDown(InputName))
+        if(Input.GetButton(InputName))
             OnPressed.Invoke();
     }
 }
@@ -24,7 +24,7 @@ public class InputKey
 
     public void Update()
     {
-        if(Input.GetKeyDown(Key))
+        if(Input.GetKey(Key))
             OnPressed.Invoke();
     }
 }
