@@ -144,9 +144,9 @@ MonoBehaviour:
   jumpInput: Jump
   horizontalInput: Horizontal
   verticalInput: Vertical
-  moveSpeed: 10
-  groundAcceleration: 0.01
-  airAcceleration: 0.2
+  moveSpeed: 15
+  groundAcceleration: 0.005
+  airAcceleration: 0.1
   jumpHeight: 5
   jumpTimeApex: 0.3
   maxWalkAngle: 24.4
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f76ffde8adbdb24d9bea4be733318d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reach: 3
+  Reach: 2
 --- !u!114 &539857074
 MonoBehaviour:
   m_ObjectHideFlags: 0

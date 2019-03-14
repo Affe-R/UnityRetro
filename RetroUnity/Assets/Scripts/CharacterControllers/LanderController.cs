@@ -9,9 +9,9 @@ public class LanderController : MonoBehaviour
     public int startFuel;
     public Image FuelImage;
     //public GameObject thrustImage;
-    public GameObject muzzleLeft;
-    public GameObject muzzleRight;
-    public GameObject muzzleDown;
+    //public GameObject muzzleLeft;
+    //public GameObject muzzleRight;
+    //public GameObject muzzleDown;
 
     private Rigidbody2D rb2d;
     private float fuel;
@@ -25,12 +25,12 @@ public class LanderController : MonoBehaviour
         if(fuelText)
             fuelText.text = "Fuel: " + fuel.ToString();
 
-        if (muzzleLeft)
-            muzzleLeft.SetActive(false);
-        if (muzzleRight)
-            muzzleRight.SetActive(false);
-        if (muzzleDown)
-            muzzleDown.SetActive(false);
+        //if (muzzleLeft)
+        //    muzzleLeft.SetActive(false);
+        //if (muzzleRight)
+        //    muzzleRight.SetActive(false);
+        //if (muzzleDown)
+        //    muzzleDown.SetActive(false);
     }
 
     void FixedUpdate()
@@ -75,10 +75,10 @@ public class LanderController : MonoBehaviour
             fuel--;
 
             // aktivera thrust flames
-            if (thrustHorizontal > 0)
-                muzzleLeft.SetActive(true);
-            if (thrustHorizontal < 0)
-                muzzleRight.SetActive(true);
+            //if (thrustHorizontal > 0)
+            //    muzzleLeft.SetActive(true);
+            //if (thrustHorizontal < 0)
+            //    muzzleRight.SetActive(true);
         }
     }
 
@@ -88,7 +88,7 @@ public class LanderController : MonoBehaviour
         {
             rb2d.AddRelativeForce(new Vector2(0, thrustForceDown));
             fuel--;
-            muzzleDown.SetActive(true);
+            //muzzleDown.SetActive(true);
         }
     }
 
