@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8573775090531931826}
   - component: {fileID: 8573775090531931829}
   - component: {fileID: 8573775090531931828}
-  - component: {fileID: 8573775090531931831}
+  - component: {fileID: 3952425148436061101}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -107,7 +107,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
---- !u!114 &8573775090531931831
+--- !u!114 &3952425148436061101
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,6 +116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8573775090531931830}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66852ac3ae877e45a3aebf4e8df5c41, type: 3}
+  m_Script: {fileID: 11500000, guid: 138adaa16c5353146b5181e229eb2c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnInteracted:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

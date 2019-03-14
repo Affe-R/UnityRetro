@@ -64,9 +64,6 @@ public class LanderController : MonoBehaviour
 
         if(fuelText)
             fuelText.text = "Fuel: " + fuel.ToString();
-
-       
-
     }
 
     public void Rotate(float thrustHorizontal)
