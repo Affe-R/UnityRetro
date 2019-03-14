@@ -37,7 +37,7 @@ public class RetroCharacterController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(rb2d.velocity);
+        // Debug.Log(rb2d.velocity);
         CharacterMovement();
         CharacterInteract();
     }
@@ -94,13 +94,12 @@ public class RetroCharacterController : MonoBehaviour
 
     void CharacterInteract()
     {
-
-        if (Input.GetButtonDown(interactButton)){
-            Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, characterBounds, 0f, interactMask);
-            foreach(Collider2D collider in hitColliders)
-            {
-                collider.gameObject.GetComponent<ButtonTrigger>();
-            }
-        }
+        // if (Input.GetButtonDown(interactButton)){
+        //     Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, characterBounds, 0f, interactMask);
+        //     foreach(Collider2D collider in hitColliders)
+        //     {
+        //         collider.gameObject.GetComponent<ButtonTrigger>();
+        //     }
+        // }
     }
 }

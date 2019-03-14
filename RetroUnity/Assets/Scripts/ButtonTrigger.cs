@@ -37,7 +37,8 @@ public class ButtonTrigger : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             ButtonBeginPressed?.Invoke();
-            onButtonTrigger?.Invoke();
+            //onButtonTrigger?.Invoke();
+            ButtonTriggered?.Invoke();
         }
     }
 
