@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84383a79ed63bf04d8993db205e160ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyDelay: 0.5
+  DestroyDelay: 0.1
   ObjectToSpawn: {fileID: 7840436841750514611, guid: 30ac029d2ffaf1d4884c84f3ab475913,
     type: 3}
 --- !u!1 &338493406
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84383a79ed63bf04d8993db205e160ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyDelay: 0.5
+  DestroyDelay: 0.1
   ObjectToSpawn: {fileID: 7840436841750514611, guid: 30ac029d2ffaf1d4884c84f3ab475913,
     type: 3}
 --- !u!1 &1147751327
@@ -654,7 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84383a79ed63bf04d8993db205e160ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyDelay: 0.5
+  DestroyDelay: 0.1
   ObjectToSpawn: {fileID: 7840436841750514611, guid: 30ac029d2ffaf1d4884c84f3ab475913,
     type: 3}
 --- !u!1 &1602018769
