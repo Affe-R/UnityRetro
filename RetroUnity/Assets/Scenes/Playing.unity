@@ -403,6 +403,15 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 373426237}
+    - target: {fileID: 844673061, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039760239353698211, guid: a28e9f57f6718bc4e96427273e477be4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
 --- !u!1001 &294468781
@@ -2326,6 +2335,8 @@ GameObject:
   - component: {fileID: 2132387269}
   - component: {fileID: 2132387268}
   - component: {fileID: 2132387270}
+  - component: {fileID: 2132387271}
+  - component: {fileID: 2132387272}
   m_Layer: 0
   m_Name: LeftCamera
   m_TagString: Untagged
@@ -2411,3 +2422,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &2132387271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132387266}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1f6a86c4233a142be614bef20cbf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 373426237}
+--- !u!114 &2132387272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132387266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce187bfe915a5744a980aa1915cab26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 373426237}
