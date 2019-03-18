@@ -2519,20 +2519,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3528762429308652636}
     m_Modifications:
-    - target: {fileID: 8573775090531931830, guid: c49f5d1297b9f534396009cd34adca15,
-        type: 3}
-      propertyPath: m_Name
-      value: Button Thrust
-      objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.06
+      value: -5.06
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -2578,6 +2573,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931830, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: m_Name
+      value: Button Thrust
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931829, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -2681,20 +2681,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3528762429308652636}
     m_Modifications:
-    - target: {fileID: 8573775090531931830, guid: c49f5d1297b9f534396009cd34adca15,
-        type: 3}
-      propertyPath: m_Name
-      value: Button Right
-      objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.9
+      value: -7.59
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.06
+      value: -10.08
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -2740,6 +2735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931830, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: m_Name
+      value: Button Right
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931829, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -2843,20 +2843,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3528762429308652636}
     m_Modifications:
-    - target: {fileID: 8573775090531931830, guid: c49f5d1297b9f534396009cd34adca15,
-        type: 3}
-      propertyPath: m_Name
-      value: Button Left
-      objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.21
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10.04
+      value: -0.94
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931826, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -2902,6 +2897,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573775090531931830, guid: c49f5d1297b9f534396009cd34adca15,
+        type: 3}
+      propertyPath: m_Name
+      value: Button Left
       objectReference: {fileID: 0}
     - target: {fileID: 8573775090531931829, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}

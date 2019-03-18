@@ -15,6 +15,7 @@ public class LanderController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private float fuel;
+    private bool hasLanded;
     //private GameObject muzzle;
     //private bool isThrusting;
 
@@ -68,7 +69,7 @@ public class LanderController : MonoBehaviour
 
     public void Rotate(float thrustHorizontal)
     {
-        if (fuel > 0)
+        if (fuel > 0 && !hasLanded)
         {
             //isThrusting = true;
             rb2d.AddTorque(thrustHorizontal * -thrustForceRotate);
@@ -84,12 +85,17 @@ public class LanderController : MonoBehaviour
 
     public void ForwardThrust()
     {
-        if (fuel > 0)
+        if (fuel > 0 && !hasLanded)
         {
             rb2d.AddRelativeForce(new Vector2(0, thrustForceDown));
             fuel--;
             //muzzleDown.SetActive(true);
         }
+    }
+
+    public void Landed()
+    {
+        hasLanded = true;
     }
 
     //public void StopThrusting()
