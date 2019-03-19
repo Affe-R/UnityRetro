@@ -38,4 +38,15 @@ public class AudioManager : MonoBehaviour
         sfxSource.Play();
     }
 
+    //-----------------------------------
+
+    public void PlayButtonPressSound()
+    {
+        if canPlayButton
+        {
+            AudioManager.instance.PlaySingle(buttonPressSound);
+        }
+
+    }
+
 }

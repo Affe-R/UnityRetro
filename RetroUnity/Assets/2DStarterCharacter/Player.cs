@@ -107,4 +107,6 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX = !defaultDirectionRight;
         }
     }
+
+    
 }

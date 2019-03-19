@@ -642,6 +642,30 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 373426233, guid: ccda19ab9d87275488b4f287248db93c, type: 3}
+      propertyPath: OnTriggered.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 373426233, guid: ccda19ab9d87275488b4f287248db93c, type: 3}
+      propertyPath: OnTriggered.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 373426233, guid: ccda19ab9d87275488b4f287248db93c, type: 3}
+      propertyPath: OnTriggered.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 373426233, guid: ccda19ab9d87275488b4f287248db93c, type: 3}
+      propertyPath: OnTriggered.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1199967511}
+    - target: {fileID: 373426233, guid: ccda19ab9d87275488b4f287248db93c, type: 3}
+      propertyPath: OnTriggered.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlayButtonPressSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 373426233, guid: ccda19ab9d87275488b4f287248db93c, type: 3}
+      propertyPath: OnTriggered.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1287837338791204865, guid: ccda19ab9d87275488b4f287248db93c,
         type: 3}
       propertyPath: OnOutsideBounds.m_PersistentCalls.m_Calls.Array.size
@@ -2296,6 +2320,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 192864873}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199967511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7325035740539080532, guid: a28e9f57f6718bc4e96427273e477be4,
+    type: 3}
+  m_PrefabInstance: {fileID: 192864873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199967507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9f3f2a9c7236642a5eecfd61684419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1199967515
 MonoBehaviour:
   m_ObjectHideFlags: 0
