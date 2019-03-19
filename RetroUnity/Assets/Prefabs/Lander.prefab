@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 7320657224689991945}
   - component: {fileID: 7320657224689991947}
   - component: {fileID: 7320657224689991946}
-  - component: {fileID: 373426232}
   - component: {fileID: 373426233}
   - component: {fileID: 373426234}
   - component: {fileID: 373426236}
-  - component: {fileID: 4190392053074347456}
+  - component: {fileID: 373426244}
+  - component: {fileID: 1287837338791204865}
   m_Layer: 0
   m_Name: Lander
   m_TagString: Untagged
@@ -168,6 +168,17 @@ MonoBehaviour:
           m_StringArgument: Landing Successful
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: f2b055ba8f7f2d749b94288bcb610f26, type: 2}
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onCrash:
@@ -212,18 +223,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.87, y: 1.8}
   m_EdgeRadius: 0
---- !u!114 &373426232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7320657224689991949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966bef05f4c56f4a81bf4795ca254fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &373426233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +343,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &4190392053074347456
+--- !u!114 &373426244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -353,9 +352,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 7320657224689991949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9966bef05f4c56f4a81bf4795ca254fe, type: 3}
+  m_Script: {fileID: 11500000, guid: bb9ee04369404ad4f96b0fdeeb3dde80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8f5e8d1ead4b1e84bab384b7e4be7735, type: 2}
+  OnTriggered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7320657224689991945}
+        m_MethodName: Landed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1287837338791204865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7320657224689991949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85078d761c9c054a90e61ac8ab6c43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnOutsideBounds:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e39a89215c7378349bac483aa9fd4d08, type: 2}
+        m_MethodName: Trigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &7320657225259331922
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,8 +557,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 3492119290814208784, guid: 30ac029d2ffaf1d4884c84f3ab475913,
-        type: 3}
+    - target: {fileID: 1501943884, guid: 30ac029d2ffaf1d4884c84f3ab475913, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -522,7 +565,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1501943884, guid: 30ac029d2ffaf1d4884c84f3ab475913, type: 3}
+    - target: {fileID: 3492119290814208784, guid: 30ac029d2ffaf1d4884c84f3ab475913,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -622,8 +666,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
-    - target: {fileID: 3492119290814208784, guid: 30ac029d2ffaf1d4884c84f3ab475913,
-        type: 3}
+    - target: {fileID: 1501943884, guid: 30ac029d2ffaf1d4884c84f3ab475913, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -631,7 +674,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1501943884, guid: 30ac029d2ffaf1d4884c84f3ab475913, type: 3}
+    - target: {fileID: 3492119290814208784, guid: 30ac029d2ffaf1d4884c84f3ab475913,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -731,8 +775,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 3492119290814208784, guid: 30ac029d2ffaf1d4884c84f3ab475913,
-        type: 3}
+    - target: {fileID: 1501943884, guid: 30ac029d2ffaf1d4884c84f3ab475913, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -740,7 +783,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1501943884, guid: 30ac029d2ffaf1d4884c84f3ab475913, type: 3}
+    - target: {fileID: 3492119290814208784, guid: 30ac029d2ffaf1d4884c84f3ab475913,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
