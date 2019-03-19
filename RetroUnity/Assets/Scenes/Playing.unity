@@ -962,8 +962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 351394802}
   musicSource: {fileID: 351394804}
-  lowPitchRange: 0.95
-  highPitchRange: 1.05
+  lowPitchRange: 0.9
+  highPitchRange: 1.1
 --- !u!82 &351394804
 AudioSource:
   m_ObjectHideFlags: 0
@@ -975,7 +975,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c95ea8d6d538ad3489f3fe96d1d3b9a1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
