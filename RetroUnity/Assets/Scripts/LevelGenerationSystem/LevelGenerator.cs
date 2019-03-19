@@ -20,7 +20,7 @@ public struct Platform
 public class LevelGenerator : MonoBehaviour
 {
     public Vector2 WidthHeight;
-    public float Spaceing;
+    public float Spacing;
 
     public List<Vector2> points = new List<Vector2>();
 
@@ -33,12 +33,12 @@ public class LevelGenerator : MonoBehaviour
 
     void CreatePlatforms()
     {
-        float totalSpaceingLength = Spaceing * (NumPlatforms);
+        float totalSpaceingLength = Spacing * (NumPlatforms);
         float sumPlatformsLength = NumPlatforms * (NumPlatforms + 1) / 2;
         float SCALE = (WidthHeight.x - totalSpaceingLength) / (sumPlatformsLength);
 
         platforms = new Platform[NumPlatforms];
-        float currentX = Spaceing * .5f;
+        float currentX = Spacing * .5f;
 
         List<int> lengths = new List<int>();
         // Create list
@@ -62,7 +62,7 @@ public class LevelGenerator : MonoBehaviour
             float points = (NumPlatforms) - length;
 
             platforms[i] = new Platform(Length, position, points);
-            currentX += Length + Spaceing;
+            currentX += Length + Spacing;
         }
     }
 
@@ -73,7 +73,7 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 0; i < platforms.Length; i++)
         {
-            float mountainSpaceing = Spaceing / Resolution + 1;
+            float mountainSpaceing = Spacing / Resolution + 1;
             // Add extra points
             for (int j = 0; j < Resolution; j++)
             {
@@ -128,13 +128,30 @@ public class LevelGenerator : MonoBehaviour
         // Find scalar to make pixels into world space
         // find max point
         // find min point
+        // Vector2 xMinMax = default;
+        // Vector2 yMinMax = default;
+        // for (int i = 0; i < points.Length; i++)
+        // {
+        //     if(points[i].x < xMinMax.x)
+        //         xMinMax.x = points[i].x;
+        //     else if(points[i].x > xMinMax.y)
+        //         xMinMax.y = points[i].x;
+        // }
+
 
         for (int y = 0; y < textureSize.y; y++)
         {
             for (int x = 0; x < textureSize.x; x++)
             {
+                float xWorld = Mathf.Lerp(0, (float)size.x, x / (float)textureSize.x);
+                float yWorld = Mathf.Lerp(0, (float)size.y, y / (float)textureSize.y);
+
+                // Debug.Log(y + " " + textureSize.y + " " + Mathf.Lerp(0, (float)size.y, (float)y / (float)textureSize.y));
+
+                Vector3 worldSpaceCoordinate = new Vector3(xWorld, yWorld, 0);
+
                 // Need to be converted to world space !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                if(WithinLineBounds(new Vector3(x, y, 0), points))
+                if(WithinLineBounds(worldSpaceCoordinate, points))
                     texture.SetPixel(x, y, Color.red);
                 else
                     texture.SetPixel(x, y, Color.clear);
@@ -147,12 +164,12 @@ public class LevelGenerator : MonoBehaviour
 
     bool WithinLineBounds(Vector3 point, Vector2[] lineVerts)
     {
-        Debug.Log(point.x + " > " + lineVerts[lineVerts.Length - 1].x + " = " + (point.x > lineVerts[lineVerts.Length - 1].x));
+        // Debug.Log(point.x);
         // Check if outside
         if(point.x < 0 || point.x > lineVerts[lineVerts.Length - 1].x || point.y < 0)
             return false;
 
-        return true;
+        // return true;
 
         Vector2 leftPoint = new Vector2();
         Vector2 rightPoint = new Vector2();
@@ -173,7 +190,8 @@ public class LevelGenerator : MonoBehaviour
         if(rightPoint == leftPoint)
             return false;
 
-        if(point.y > leftPoint.y)
+        // if(point.y < leftPoint.y)
+        if(Vector3.Project(point, (rightPoint - leftPoint).normalized).y < point.y) //////////// keep working on this. Its kind of working
             return true;
 
         return false;
@@ -181,7 +199,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Start()
     {
-        int numberOfPoints = (int)(WidthHeight.x / Spaceing);
+        int numberOfPoints = (int)(WidthHeight.x / Spacing);
 
         CreatePlatforms();
         CreatePoints();
@@ -195,7 +213,7 @@ public class LevelGenerator : MonoBehaviour
         // gameObject.AddComponent(CreateCollider(points));
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         Vector2 bottomLeft = (Vector2)transform.position - WidthHeight * .5f;
 
@@ -207,5 +225,16 @@ public class LevelGenerator : MonoBehaviour
         {
             Gizmos.DrawLine(bottomLeft + points[i], bottomLeft + points[i + 1]);
         }
+
+        Gizmos.color = Color.red;
+        Vector3 point = new Vector3(10, 10);
+        Vector3 rail = new Vector3(2, .5f);
+        Gizmos.DrawRay(Vector3.zero, rail * 100);
+        Gizmos.DrawSphere(point, .5f);
+
+        Gizmos.DrawLine(point, Vector3.Project(point, rail));
+
+        Debug.Log(Vector3.Project(point, rail));
+
     }
 }
