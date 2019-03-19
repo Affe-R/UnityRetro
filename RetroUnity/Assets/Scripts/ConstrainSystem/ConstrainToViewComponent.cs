@@ -22,7 +22,8 @@ public class ConstrainToViewComponent : MonoBehaviour
         Camera cam = Camera.main;
         float size = cam.orthographicSize;
         float aspect = cam.aspect;
-        size *= 2;
+        //size *= 2;
+        size *= 2.15f;
         Bounds viewBounds = new Bounds((Vector2)cam.transform.position, new Vector2(size * aspect, size));
         return viewBounds;
     }
