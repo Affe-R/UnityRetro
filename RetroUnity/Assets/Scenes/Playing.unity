@@ -729,6 +729,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7320657224689991947, guid: ccda19ab9d87275488b4f287248db93c,
+        type: 3}
+      propertyPath: topLandingSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320657224689991947, guid: ccda19ab9d87275488b4f287248db93c,
+        type: 3}
+      propertyPath: maxLandingVelocityMagnitude
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7320657224689991945, guid: ccda19ab9d87275488b4f287248db93c,
         type: 3}
       propertyPath: fuelText
