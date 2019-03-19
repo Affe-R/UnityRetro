@@ -31,13 +31,11 @@ public class Player : MonoBehaviour
     [Tooltip("Is the default orientation of the sprite facing right?")]
     public bool defaultDirectionRight;
     public Color characterTint = Color.white;
-    float gravity;
+    public float gravity;
     float jumpVelocity;
 
     [Header("Sound Effects")]
     public AudioClip jumpSound;
-    public AudioClip buttonPressSound;
-    public bool canPlayButton = true;
 
     float velocityXSmoothing;
     Vector3 velocity;
@@ -70,10 +68,6 @@ public class Player : MonoBehaviour
             wantsToJump = true;
         }
 
-        if (Input.GetButtonUp("Jump"))
-        {
-            canPlayButton = true;
-        }
     }
 
     // Update is called once per frame
@@ -112,18 +106,6 @@ public class Player : MonoBehaviour
         {
             spriteRenderer.flipX = !defaultDirectionRight;
         }
-    }
-
-    //-----------------------------------
-
-    public void PlayButtonPressSound()
-    {
-        if (canPlayButton)
-        {
-            canPlayButton = false;
-            AudioManager.instance.PlaySingle(buttonPressSound);
-        }
-
     }
 
 }
