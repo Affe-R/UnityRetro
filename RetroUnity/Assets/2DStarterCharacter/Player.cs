@@ -34,6 +34,11 @@ public class Player : MonoBehaviour
     float gravity;
     float jumpVelocity;
 
+    [Header("Sound Effects")]
+    public AudioClip jumpSound;
+    public AudioClip buttonPressSound;
+    public bool canPlayButton = true;
+
     float velocityXSmoothing;
     Vector3 velocity;
     Vector2 directionalInput;
@@ -64,6 +69,11 @@ public class Player : MonoBehaviour
         {
             wantsToJump = true;
         }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            canPlayButton = true;
+        }
     }
 
     // Update is called once per frame
@@ -82,6 +92,9 @@ public class Player : MonoBehaviour
             velocity.y = jumpVelocity;
             animator.SetBool("IsJumping", true);
             wantsToJump = false;
+            // JUMP SFX:
+            AudioManager.instance.RandomizeSfx(jumpSound);
+            //AudioManager.instance.PlaySingle(jumpSound);
         }
         else if (controller.collisionInfo.below)
         {
@@ -100,4 +113,17 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX = !defaultDirectionRight;
         }
     }
+
+    //-----------------------------------
+
+    public void PlayButtonPressSound()
+    {
+        if (canPlayButton)
+        {
+            canPlayButton = false;
+            AudioManager.instance.PlaySingle(buttonPressSound);
+        }
+
+    }
+
 }
