@@ -125,10 +125,15 @@ public class LevelGenerator : MonoBehaviour
         Vector2Int textureSize = new Vector2Int((int)(size.x * pixelsPerUnit), (int)(size.y * pixelsPerUnit));
         Texture2D texture = new Texture2D(textureSize.x, textureSize.y, TextureFormat.RGBA32, false);
 
+        // Find scalar to make pixels into world space
+        // find max point
+        // find min point
+
         for (int y = 0; y < textureSize.y; y++)
         {
             for (int x = 0; x < textureSize.x; x++)
             {
+                // Need to be converted to world space !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if(WithinLineBounds(new Vector3(x, y, 0), points))
                     texture.SetPixel(x, y, Color.red);
                 else
@@ -142,9 +147,12 @@ public class LevelGenerator : MonoBehaviour
 
     bool WithinLineBounds(Vector3 point, Vector2[] lineVerts)
     {
+        Debug.Log(point.x + " > " + lineVerts[lineVerts.Length - 1].x + " = " + (point.x > lineVerts[lineVerts.Length - 1].x));
         // Check if outside
         if(point.x < 0 || point.x > lineVerts[lineVerts.Length - 1].x || point.y < 0)
             return false;
+
+        return true;
 
         Vector2 leftPoint = new Vector2();
         Vector2 rightPoint = new Vector2();
