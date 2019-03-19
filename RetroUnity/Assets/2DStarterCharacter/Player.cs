@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Controller2D))]
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
     [Header("Control Scheme")]
@@ -25,6 +27,10 @@ public class Player : MonoBehaviour
     [Range(0f, 90f)]
     public float maxDescentAngle = 30f;
 
+    [Header("Character visual properties")]
+    [Tooltip("Is the default orientation of the sprite facing right?")]
+    public bool defaultDirectionRight;
+    public Color characterTint = Color.white;
     float gravity;
     float jumpVelocity;
 
@@ -34,7 +40,8 @@ public class Player : MonoBehaviour
     bool wantsToJump;
 
     Controller2D controller;
-
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +52,9 @@ public class Player : MonoBehaviour
         controller.maxWalkableAngle = maxWalkAngle;
         controller.maxDescendableAngle = maxDescentAngle;
         print(gravity);
-
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.color = characterTint;
     }
 
     private void Update()
@@ -71,10 +80,24 @@ public class Player : MonoBehaviour
         if (wantsToJump)
         {
             velocity.y = jumpVelocity;
+            animator.SetBool("IsJumping", true);
             wantsToJump = false;
+        }
+        else if (controller.collisionInfo.below)
+        {
+            animator.SetBool("IsJumping", false);
         }
 
         controller.Move(velocity * Time.deltaTime);
-
+        animator.SetBool("isGrounded", controller.collisionInfo.below);
+        animator.SetFloat("Speed", Mathf.Abs(velocity.x));
+        if (velocity.x > 0)
+        {
+            spriteRenderer.flipX = defaultDirectionRight;
+        }
+        else if (velocity.x < 0)
+        {
+            spriteRenderer.flipX = !defaultDirectionRight;
+        }
     }
 }
