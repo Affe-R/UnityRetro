@@ -71,9 +71,9 @@ public class Controller2D : MonoBehaviour
             if (hit)
             {
                 float slopeAngle = Vector2.Angle(hit.normal, transform.up);
-                Debug.DrawLine(hit.point, hit.normal + hit.point, Color.white);
-                Debug.DrawLine(hit.point, transform.up + new Vector3(hit.point.x, hit.point.y, 0f), Color.red);
-                Debug.Log(slopeAngle);
+                //Debug.DrawLine(hit.point, hit.normal + hit.point, Color.white);
+                //Debug.DrawLine(hit.point, transform.up + new Vector3(hit.point.x, hit.point.y, 0f), Color.red);
+                //Debug.Log(slopeAngle);
                 if (i == 0 && slopeAngle <= maxWalkableAngle)
                 {
                     if (collisionInfo.descendingSlope)
@@ -108,7 +108,7 @@ public class Controller2D : MonoBehaviour
                 }
             }
 
-            Debug.DrawRay(rayOrigin, transform.right * directionX * rayLenght, Color.green);
+            //Debug.DrawRay(rayOrigin, transform.right * directionX * rayLenght, Color.green);
 
 
         }
@@ -130,7 +130,7 @@ public class Controller2D : MonoBehaviour
             {
                 _velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLenght = hit.distance;
-                Debug.DrawRay(rayOrigin, transform.up * directionY * rayLenght, Color.green);
+               // Debug.DrawRay(rayOrigin, transform.up * directionY * rayLenght, Color.green);
 
                 if (collisionInfo.climbingSlope)
                 {
@@ -173,7 +173,6 @@ public class Controller2D : MonoBehaviour
             collisionInfo.below = true;
             collisionInfo.climbingSlope = true;
             collisionInfo.slopeAngle = _slopeAngle;
-            Debug.Log("CLIMBING SLOPE");
         }
 
     }
@@ -252,10 +251,10 @@ public class Controller2D : MonoBehaviour
         raycastOrigins.topLeft = rayTopLeft.position - new Vector3(-skinWidth, skinWidth);
         raycastOrigins.topRight = rayTopRight.position - new Vector3(skinWidth, skinWidth);
 
-        Debug.DrawLine(raycastOrigins.bottomLeft, raycastOrigins.bottomRight, Color.red);
-        Debug.DrawLine(raycastOrigins.bottomRight, raycastOrigins.topRight, Color.green);
-        Debug.DrawLine(raycastOrigins.topRight, raycastOrigins.topLeft, Color.blue);
-        Debug.DrawLine(raycastOrigins.topLeft, raycastOrigins.bottomLeft, Color.yellow);
+        //Debug.DrawLine(raycastOrigins.bottomLeft, raycastOrigins.bottomRight, Color.red);
+        //Debug.DrawLine(raycastOrigins.bottomRight, raycastOrigins.topRight, Color.green);
+        //Debug.DrawLine(raycastOrigins.topRight, raycastOrigins.topLeft, Color.blue);
+        //Debug.DrawLine(raycastOrigins.topLeft, raycastOrigins.bottomLeft, Color.yellow);
     }
 
     void CalculateRaySpacing()
