@@ -530,6 +530,21 @@ PrefabInstance:
       propertyPath: buttonPressSound
       value: 
       objectReference: {fileID: 8300000, guid: b0f716bf1ac67914c9b8f3b0d38f6750, type: 3}
+    - target: {fileID: 1214960452104276768, guid: a28e9f57f6718bc4e96427273e477be4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214960452444429681, guid: a28e9f57f6718bc4e96427273e477be4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214960453516057768, guid: a28e9f57f6718bc4e96427273e477be4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3897003067904347390, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
