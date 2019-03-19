@@ -29,6 +29,8 @@ public class LevelGenerator : MonoBehaviour
     public int NumPlatforms = 5;
     public int Resolution = 1;
 
+    public int PixelsPerUnit = 24;
+
     void CreatePlatforms()
     {
         float totalSpaceingLength = Spaceing * (NumPlatforms);
@@ -108,29 +110,34 @@ public class LevelGenerator : MonoBehaviour
         return points;
     }
 
-    void CreateTexture()
+    PolygonCollider2D CreateCollider(Vector2[] points)
     {
         PolygonCollider2D pc = gameObject.AddComponent<PolygonCollider2D>();
-        pc.points = CreatePoints();
+        var test = new PolygonCollider2D();
+        pc.points = points;
         pc.offset = -WidthHeight * .5f;
 
-        int pixelsPerUnit = 24;
-        Vector2Int textureSize = new Vector2Int((int)(WidthHeight.x * pixelsPerUnit), (int)(WidthHeight.y * pixelsPerUnit));
+        return pc;
+    }
+
+    Texture2D CreateTexture(Vector2[] points, Vector2Int size, int pixelsPerUnit = 24)
+    {
+        Vector2Int textureSize = new Vector2Int((int)(size.x * pixelsPerUnit), (int)(size.y * pixelsPerUnit));
         Texture2D texture = new Texture2D(textureSize.x, textureSize.y, TextureFormat.RGBA32, false);
 
         for (int y = 0; y < textureSize.y; y++)
         {
             for (int x = 0; x < textureSize.x; x++)
             {
-                // if(WithinLineBounds(new Vector3(x, y, 0), pc.points))
+                if(WithinLineBounds(new Vector3(x, y, 0), points))
                     texture.SetPixel(x, y, Color.red);
-                // else
-                //     texture.SetPixel(x, y, Color.blue);
+                else
+                    texture.SetPixel(x, y, Color.clear);
             }
         }
-
-        Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), pixelsPerUnit);
-        gameObject.AddComponent<SpriteRenderer>().sprite = sprite;
+        texture.Apply();
+        texture.filterMode = FilterMode.Point;
+        return texture;
     }
 
     bool WithinLineBounds(Vector3 point, Vector2[] lineVerts)
@@ -170,19 +177,23 @@ public class LevelGenerator : MonoBehaviour
 
         CreatePlatforms();
         CreatePoints();
-        CreateTexture();
+
+        Vector2[] points = CreatePoints();
+        CreateCollider(points);
+        Texture2D texture = CreateTexture(points, new Vector2Int((int)WidthHeight.x, (int)WidthHeight.y));
+        Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), PixelsPerUnit);
+        gameObject.AddComponent<SpriteRenderer>().sprite = sprite;
+
+        // gameObject.AddComponent(CreateCollider(points));
     }
 
     void OnDrawGizmos()
     {
         Vector2 bottomLeft = (Vector2)transform.position - WidthHeight * .5f;
-        // CreatePlatforms();
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position, WidthHeight);
         Gizmos.color = Color.white;
-
-        // Vector2[] points = CreatePoints();
 
         for (int i = 0; i < points.Count - 1; i++)
         {
