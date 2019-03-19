@@ -5,9 +5,12 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
 
-    public AudioSource SfxSource;
-    public AudioSource inGameMusicSource;
+    public AudioSource sfxSource;
+    public AudioSource musicSource;
     public static AudioManager instance = null;
+
+    public float lowPitchRange = .9f;
+    public float highPitchRange = 1.1f;
 
     private void Awake()
     {
@@ -21,18 +24,18 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySingle(AudioClip clip)
     {
-        SfxSource.clip = clip;
+        sfxSource.clip = clip;
+        sfxSource.Play();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void RandomizeSfx(params AudioClip[]clips)
     {
-        
+        int randomIndex = Random.Range(0, clips.Length);
+        float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+
+        sfxSource.pitch = randomPitch;
+        sfxSource.clip = clips[randomIndex];
+        sfxSource.Play();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

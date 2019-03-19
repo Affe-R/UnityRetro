@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
     float gravity;
     float jumpVelocity;
 
+    [Header("Sound Effects")]
+    public AudioClip jumpSound;
+    public AudioClip buttonPressSound;
+
     float velocityXSmoothing;
     Vector3 velocity;
     Vector2 directionalInput;
@@ -82,6 +86,9 @@ public class Player : MonoBehaviour
             velocity.y = jumpVelocity;
             animator.SetBool("IsJumping", true);
             wantsToJump = false;
+            // JUMP SFX:
+            AudioManager.instance.RandomizeSfx(jumpSound);
+            //AudioManager.instance.PlaySingle(jumpSound);
         }
         else if (controller.collisionInfo.below)
         {
