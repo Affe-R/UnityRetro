@@ -41,7 +41,9 @@ public class ScoreManager : MonoBehaviour
         else
             highestScore = LoadHighscoreFromJson();
 
-        AddScore(1000);
+        UpdateHighScoreText();
+
+        AddScore(1);
     }
 
     public void AddScore(int ScoreToAdd)

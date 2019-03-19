@@ -74,9 +74,6 @@ public class Player : MonoBehaviour
         {
             canPlayButton = true;
         }
-
-        Debug.Log(canPlayButton);
-
     }
 
     // Update is called once per frame
