@@ -36,8 +36,6 @@ public class Player : MonoBehaviour
 
     [Header("Sound Effects")]
     public AudioClip jumpSound;
-    public AudioClip buttonPressSound;
-    public bool canPlayButton = true;
 
     float velocityXSmoothing;
     Vector3 velocity;
@@ -69,13 +67,6 @@ public class Player : MonoBehaviour
         {
             wantsToJump = true;
         }
-
-        if (Input.GetButtonUp("Jump"))
-        {
-            canPlayButton = true;
-        }
-
-        Debug.Log(canPlayButton);
 
     }
 
@@ -115,18 +106,6 @@ public class Player : MonoBehaviour
         {
             spriteRenderer.flipX = !defaultDirectionRight;
         }
-    }
-
-    //-----------------------------------
-
-    public void PlayButtonPressSound()
-    {
-        if (canPlayButton)
-        {
-            canPlayButton = false;
-            AudioManager.instance.PlaySingle(buttonPressSound);
-        }
-
     }
 
 }
