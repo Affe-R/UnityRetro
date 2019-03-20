@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
     string ScoreDisplay;
     Highscore highestScore = new Highscore(default, default);
 
+    public Text ScoreText;
     public Text RecordText;
 
     string filePath;
@@ -38,17 +39,15 @@ public class ScoreManager : MonoBehaviour
 
         if (LoadHighscoreFromJson() == null)
             SaveHighscoreToJson(highestScore);
-        else
-            highestScore = LoadHighscoreFromJson();
-
+        
+        highestScore = LoadHighscoreFromJson();
         UpdateHighScoreText();
-
-        AddScore(1);
     }
 
     public void AddScore(int ScoreToAdd)
     {
         Score += ScoreToAdd;
+        UpdateScoreText();
         CheckNewHighscore(Score);
     }
 
@@ -70,6 +69,11 @@ public class ScoreManager : MonoBehaviour
     {
         Highscore TEMP = LoadHighscoreFromJson();
         RecordText.text = TEMP.Name + " : " + TEMP.Score.ToString();
+    }
+
+    void UpdateScoreText()
+    {
+        ScoreText.text = "Score : " + Score.ToString();
     }
 
     void SaveHighscoreToJson(Highscore inHighscore)
