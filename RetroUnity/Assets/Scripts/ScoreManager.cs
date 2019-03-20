@@ -1,37 +1,86 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class Highscore
+{
+    public string Name;
+    public int Score;
+
+    public Highscore(string NameIn, int ScoreIn)
+    {
+
+        Name = NameIn;
+        Score = ScoreIn;
+    }
+}
+
+
 public class ScoreManager : MonoBehaviour
 {
-    //On Win/Loose save Score
-    int Score = 1000;
-    int HighScore = 0;
+    string jsonStrSerialized;
+    int Score = 0;
+    string ScoreDisplay;
+    Highscore highestScore = new Highscore(default, default);
 
     public Text RecordText;
+
+    string filePath;
 
     void Start()
     {
         DynamicGI.UpdateEnvironment();
-        HighScore = PlayerPrefs.GetInt("Highscore");
-        RecordText.text = HighScore.ToString() + "   S e c     H i g h s c o r e";
+        filePath = Path.Combine(Application.dataPath, "save.json");
+
+        if (LoadHighscoreFromJson() == null)
+            SaveHighscoreToJson(highestScore);
+        else
+            highestScore = LoadHighscoreFromJson();
+
+        UpdateHighScoreText();
+
+        AddScore(1);
     }
 
-    public void ScoreUpdate(int NewScore)
+    public void AddScore(int ScoreToAdd)
     {
-        Score = NewScore;
+        Score += ScoreToAdd;
         CheckNewHighscore(Score);
     }
 
     void CheckNewHighscore(int ScoreToCheck)
     {
-        if (ScoreToCheck > HighScore)
+        if (ScoreToCheck >= highestScore.Score)
         {
-            PlayerPrefs.SetInt("Highscore", ScoreToCheck);
-            HighScore = ScoreToCheck;
-            RecordText.text = HighScore.ToString() + "   S e c     H i g h s c o r e";
+            highestScore = new Highscore("Highest", ScoreToCheck);
 
+            SaveHighscoreToJson(highestScore);
+
+            highestScore.Score = ScoreToCheck;
+
+            UpdateHighScoreText();
         }
+    }
+
+    void UpdateHighScoreText()
+    {
+        Highscore TEMP = LoadHighscoreFromJson();
+        RecordText.text = TEMP.Name + " : " + TEMP.Score.ToString();
+    }
+
+    void SaveHighscoreToJson(Highscore inHighscore)
+    {
+        string HighscoreStr = JsonUtility.ToJson(highestScore);
+        File.WriteAllText(filePath, HighscoreStr);
+    }
+
+    Highscore LoadHighscoreFromJson()
+    {
+        jsonStrSerialized = File.ReadAllText(filePath);
+        return JsonUtility.FromJson<Highscore>(File.ReadAllText(filePath));
     }
 }

@@ -31,8 +31,11 @@ public class Player : MonoBehaviour
     [Tooltip("Is the default orientation of the sprite facing right?")]
     public bool defaultDirectionRight;
     public Color characterTint = Color.white;
-    float gravity;
+    public float gravity;
     float jumpVelocity;
+
+    [Header("Sound Effects")]
+    public AudioClip jumpSound;
 
     float velocityXSmoothing;
     Vector3 velocity;
@@ -42,6 +45,12 @@ public class Player : MonoBehaviour
     Controller2D controller;
     Animator animator;
     SpriteRenderer spriteRenderer;
+    private AudioManager _audioManager;
+
+    private void Awake()
+    {
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +73,7 @@ public class Player : MonoBehaviour
         {
             wantsToJump = true;
         }
+
     }
 
     // Update is called once per frame
@@ -82,6 +92,13 @@ public class Player : MonoBehaviour
             velocity.y = jumpVelocity;
             animator.SetBool("IsJumping", true);
             wantsToJump = false;
+            // JUMP SFX:
+            
+            //if (_audioManager != null)
+            //    _audioManager.PlayWhiteNoise();
+
+            AudioManager.instance.RandomizeSfx(jumpSound);
+            //AudioManager.instance.PlaySingle(jumpSound);
         }
         else if (controller.collisionInfo.below)
         {
@@ -100,4 +117,7 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX = !defaultDirectionRight;
         }
     }
+
+    
+
 }
