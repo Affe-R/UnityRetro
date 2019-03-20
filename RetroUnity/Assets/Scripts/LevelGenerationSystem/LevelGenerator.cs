@@ -197,6 +197,11 @@ public class LevelGenerator : MonoBehaviour
         return false;
     }
 
+    void Test()
+    {
+
+    }
+
     void Start()
     {
         int numberOfPoints = (int)(WidthHeight.x / Spacing);
@@ -226,15 +231,43 @@ public class LevelGenerator : MonoBehaviour
             Gizmos.DrawLine(bottomLeft + points[i], bottomLeft + points[i + 1]);
         }
 
-        Gizmos.color = Color.red;
-        Vector3 point = new Vector3(10, 10);
-        Vector3 rail = new Vector3(2, .5f);
-        Gizmos.DrawRay(Vector3.zero, rail * 100);
-        Gizmos.DrawSphere(point, .5f);
+        // Gizmos.color = Color.red;
+        // Vector3 point = new Vector3(10, 10);
+        // Vector3 rail = new Vector3(2, .5f);
+        // Gizmos.DrawRay(Vector3.zero, rail * 100);
+        // Gizmos.DrawSphere(point, .5f);
 
-        Gizmos.DrawLine(point, Vector3.Project(point, rail));
+        // Gizmos.DrawLine(point, Vector3.Project(point, rail));
 
-        Debug.Log(Vector3.Project(point, rail));
+        // Debug.Log(Vector3.Project(point, rail));
+
+// testing stuff
+        {
+            Vector2 testPoint = new Vector2(2, 2);
+            Vector2 testRailStart = new Vector2 (0, 0);
+            Vector2 testRailEnd = new Vector2 (4, 2);
+
+            Gizmos.DrawSphere(testPoint, 0.2f);
+            Gizmos.DrawLine(testRailStart, testRailEnd);
+            Gizmos.DrawRay(testPoint, Vector2.down * 5);
+
+            float a = testRailEnd.x;
+            float b = testRailEnd.y;
+            float test = (testPoint.x - testRailStart.x) / (testRailEnd.x - testRailStart.x);
+            float lerp = Mathf.Lerp(testRailStart.x, testRailEnd.x, test);
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(testRailStart, new Vector2(a, 0));
+            Gizmos.DrawLine(testRailEnd, new Vector2(a, 0));
+
+            Debug.Log(lerp);
+
+            // 50%
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(testRailStart, new Vector2(a * lerp, 0));
+            Gizmos.DrawLine(testRailEnd * 0.5f, new Vector2(a * lerp, 0));
+
+        }
 
     }
 }
