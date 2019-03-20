@@ -38,12 +38,9 @@ public class ScoreManager : MonoBehaviour
 
         if (LoadHighscoreFromJson() == null)
             SaveHighscoreToJson(highestScore);
-        else
-            highestScore = LoadHighscoreFromJson();
-
+        
+        highestScore = LoadHighscoreFromJson();
         UpdateHighScoreText();
-
-        AddScore(1);
     }
 
     public void AddScore(int ScoreToAdd)
