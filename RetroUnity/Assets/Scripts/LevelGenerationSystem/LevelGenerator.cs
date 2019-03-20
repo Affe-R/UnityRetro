@@ -125,20 +125,6 @@ public class LevelGenerator : MonoBehaviour
         Vector2Int textureSize = new Vector2Int((int)(size.x * pixelsPerUnit), (int)(size.y * pixelsPerUnit));
         Texture2D texture = new Texture2D(textureSize.x, textureSize.y, TextureFormat.RGBA32, false);
 
-        // Find scalar to make pixels into world space
-        // find max point
-        // find min point
-        // Vector2 xMinMax = default;
-        // Vector2 yMinMax = default;
-        // for (int i = 0; i < points.Length; i++)
-        // {
-        //     if(points[i].x < xMinMax.x)
-        //         xMinMax.x = points[i].x;
-        //     else if(points[i].x > xMinMax.y)
-        //         xMinMax.y = points[i].x;
-        // }
-
-
         for (int y = 0; y < textureSize.y; y++)
         {
             for (int x = 0; x < textureSize.x; x++)
@@ -146,11 +132,8 @@ public class LevelGenerator : MonoBehaviour
                 float xWorld = Mathf.Lerp(0, (float)size.x, x / (float)textureSize.x);
                 float yWorld = Mathf.Lerp(0, (float)size.y, y / (float)textureSize.y);
 
-                // Debug.Log(y + " " + textureSize.y + " " + Mathf.Lerp(0, (float)size.y, (float)y / (float)textureSize.y));
-
                 Vector3 worldSpaceCoordinate = new Vector3(xWorld, yWorld, 0);
 
-                // Need to be converted to world space !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if(WithinLineBounds(worldSpaceCoordinate, points))
                     texture.SetPixel(x, y, Color.red);
                 else
@@ -164,12 +147,9 @@ public class LevelGenerator : MonoBehaviour
 
     bool WithinLineBounds(Vector3 point, Vector2[] lineVerts)
     {
-        // Debug.Log(point.x);
         // Check if outside
         if(point.x < 0 || point.x > lineVerts[lineVerts.Length - 1].x || point.y < 0)
             return false;
-
-        // return true;
 
         Vector2 leftPoint = new Vector2();
         Vector2 rightPoint = new Vector2();
@@ -179,7 +159,6 @@ public class LevelGenerator : MonoBehaviour
             // If the next line is further to the right than the point
             if(point.x < lineVerts[i + 1].x)
             {
-                // if(i + 1 > 0)
                 rightPoint = lineVerts[i + 1];
                 leftPoint = lineVerts[i];
                 break;
@@ -190,16 +169,12 @@ public class LevelGenerator : MonoBehaviour
         if(rightPoint == leftPoint)
             return false;
 
-        // if(point.y < leftPoint.y)
-        if(Vector3.Project(point, (rightPoint - leftPoint).normalized).y < point.y) //////////// keep working on this. Its kind of working
+        float scalar = (point.x - leftPoint.x) / (rightPoint.x - leftPoint.x);
+        Vector2 intersectionOnLine = leftPoint + (rightPoint - leftPoint) * scalar;
+        if(point.y < intersectionOnLine.y)
             return true;
 
         return false;
-    }
-
-    void Test()
-    {
-
     }
 
     void Start()
@@ -214,8 +189,6 @@ public class LevelGenerator : MonoBehaviour
         Texture2D texture = CreateTexture(points, new Vector2Int((int)WidthHeight.x, (int)WidthHeight.y));
         Sprite sprite = Sprite.Create(texture, new Rect(0.0f, 0.0f, texture.width, texture.height), new Vector2(0.5f, 0.5f), PixelsPerUnit);
         gameObject.AddComponent<SpriteRenderer>().sprite = sprite;
-
-        // gameObject.AddComponent(CreateCollider(points));
     }
 
     void OnDrawGizmosSelected()
@@ -226,48 +199,9 @@ public class LevelGenerator : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, WidthHeight);
         Gizmos.color = Color.white;
 
-        for (int i = 0; i < points.Count - 1; i++)
-        {
-            Gizmos.DrawLine(bottomLeft + points[i], bottomLeft + points[i + 1]);
-        }
-
-        // Gizmos.color = Color.red;
-        // Vector3 point = new Vector3(10, 10);
-        // Vector3 rail = new Vector3(2, .5f);
-        // Gizmos.DrawRay(Vector3.zero, rail * 100);
-        // Gizmos.DrawSphere(point, .5f);
-
-        // Gizmos.DrawLine(point, Vector3.Project(point, rail));
-
-        // Debug.Log(Vector3.Project(point, rail));
-
-// testing stuff
-        {
-            Vector2 testPoint = new Vector2(2, 2);
-            Vector2 testRailStart = new Vector2 (0, 0);
-            Vector2 testRailEnd = new Vector2 (4, 2);
-
-            Gizmos.DrawSphere(testPoint, 0.2f);
-            Gizmos.DrawLine(testRailStart, testRailEnd);
-            Gizmos.DrawRay(testPoint, Vector2.down * 5);
-
-            float a = testRailEnd.x;
-            float b = testRailEnd.y;
-            float test = (testPoint.x - testRailStart.x) / (testRailEnd.x - testRailStart.x);
-            float lerp = Mathf.Lerp(testRailStart.x, testRailEnd.x, test);
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawLine(testRailStart, new Vector2(a, 0));
-            Gizmos.DrawLine(testRailEnd, new Vector2(a, 0));
-
-            Debug.Log(lerp);
-
-            // 50%
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(testRailStart, new Vector2(a * lerp, 0));
-            Gizmos.DrawLine(testRailEnd * 0.5f, new Vector2(a * lerp, 0));
-
-        }
-
+        // for (int i = 0; i < points.Count - 1; i++)
+        // {
+        //     Gizmos.DrawLine(bottomLeft + points[i], bottomLeft + points[i + 1]);
+        // }
     }
 }
