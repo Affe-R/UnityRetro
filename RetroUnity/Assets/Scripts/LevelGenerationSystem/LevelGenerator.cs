@@ -7,9 +7,9 @@ public struct Platform
 {
     public float Length;
     public Vector2 Position;
-    public float Points;
+    public int Points;
 
-    public Platform(float length, Vector2 position, float points)
+    public Platform(float length, Vector2 position, int points)
     {
         this.Length = length;
         this.Position = position;
@@ -19,8 +19,9 @@ public struct Platform
 
 public class LevelGenerator : MonoBehaviour
 {
-    public Vector2 WidthHeight;
-    public float Spacing;
+    public Vector2 WidthHeight = Vector2.one;
+    public float MinHeight = 0;
+    public float Spacing = 1;
 
     public List<Vector2> points = new List<Vector2>();
 
@@ -30,6 +31,9 @@ public class LevelGenerator : MonoBehaviour
     public int Resolution = 1;
 
     public int PixelsPerUnit = 24;
+    public Color GroundColor;
+
+    public GameObject PlatformPrefab;
 
     void CreatePlatforms()
     {
@@ -57,12 +61,20 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < NumPlatforms; i++)
         {
             int length = lengths[i];
-            float Length = (length) * SCALE;
-            Vector2 position = new Vector2(currentX, Random.Range(0, WidthHeight.y));
+            float scaledLength = (length) * SCALE;
+            Vector2 position = new Vector2(currentX, Random.Range(MinHeight, WidthHeight.y));
             float points = (NumPlatforms) - length;
 
-            platforms[i] = new Platform(Length, position, points);
-            currentX += Length + Spacing;
+            platforms[i] = new Platform(scaledLength, position, (int)points);
+            currentX += scaledLength + Spacing;
+        }
+
+        for (int i = 0; i < platforms.Length; i++)
+        {
+            GameObject platform = Instantiate(PlatformPrefab, (Vector2)transform.position - WidthHeight * .5f + platforms[i].Position, Quaternion.identity);
+            PlatformComponent pc = platform.GetComponent<PlatformComponent>();
+            pc.SetValue(platforms[i].Points);
+            pc.SetLength(platforms[i].Length);
         }
     }
 
@@ -135,7 +147,7 @@ public class LevelGenerator : MonoBehaviour
                 Vector3 worldSpaceCoordinate = new Vector3(xWorld, yWorld, 0);
 
                 if(WithinLineBounds(worldSpaceCoordinate, points))
-                    texture.SetPixel(x, y, Color.red);
+                    texture.SetPixel(x, y, GroundColor);
                 else
                     texture.SetPixel(x, y, Color.clear);
             }
@@ -194,6 +206,10 @@ public class LevelGenerator : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Vector2 bottomLeft = (Vector2)transform.position - WidthHeight * .5f;
+
+        Gizmos.color = Color.red;
+        Vector2 minHeight = Vector2.up * MinHeight;
+        Gizmos.DrawLine(bottomLeft + minHeight, bottomLeft + Vector2.right * WidthHeight.x + minHeight);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(transform.position, WidthHeight);
