@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -39,10 +40,18 @@ public class MainMenuScript : MonoBehaviour
 
     void UpdateHighScore()
     {
-        Highscore hs = sm.LoadHighscoreFromJson();
+        Highscore hs = LoadHighscoreFromJson();
+        //Highscore hs = sm.LoadHighscoreFromJson();
         hsTextObj.GetComponent<Text>().text = (hs.Name +" "+ hs.Score);
     }
 
+    public Highscore LoadHighscoreFromJson()
+    {
+        string jsonStrSerialized;
+        string filePath = Path.Combine(Application.dataPath, "save.json");
+        jsonStrSerialized = File.ReadAllText(filePath);
+        return JsonUtility.FromJson<Highscore>(File.ReadAllText(filePath));
+    }
 
     public void Quit()
     {
