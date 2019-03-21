@@ -1,0 +1,246 @@
+fileFormatVersion: 2
+guid: 4adab4bf18d7e9a4d90587da68c2b6d3
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: t_spritesheet_explosionanimation_01_0
+    21300002: t_spritesheet_explosionanimation_01_1
+    21300004: t_spritesheet_explosionanimation_01_3
+    21300006: t_spritesheet_explosionanimation_01_5
+    21300008: t_spritesheet_explosionanimation_01_19
+    21300010: t_spritesheet_explosionanimation_01_20
+    21300012: t_spritesheet_explosionanimation_01_26
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: t_spritesheet_explosionanimation_01_0
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 210
+        width: 56
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc65caa4b4c280545b8c78de0bdb8434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_spritesheet_explosionanimation_01_1
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 209
+        width: 53
+        height: 59
+      alignment: 9
+      pivot: {x: 0.48076874, y: 0.43953383}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e463b974dc508df42a54995db0900993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_spritesheet_explosionanimation_01_3
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 210
+        width: 54
+        height: 58
+      alignment: 9
+      pivot: {x: 0.47168648, y: 0.42970407}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0fbe5f623a2e5c4885b90adb4aa612d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_spritesheet_explosionanimation_01_5
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 206
+        width: 79
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9826f20fa2922e42a3ae629bb0f929e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_spritesheet_explosionanimation_01_19
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 41
+        width: 107
+        height: 88
+      alignment: 9
+      pivot: {x: 0.51428926, y: 0.42471123}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60829970ee3b4d342b03b3ad402771e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_spritesheet_explosionanimation_01_20
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 41
+        width: 152
+        height: 106
+      alignment: 9
+      pivot: {x: 0.48658833, y: 0.38941574}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e84155f35df1b4bb49f422247f7648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: t_spritesheet_explosionanimation_01_26
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 39
+        width: 191
+        height: 108
+      alignment: 9
+      pivot: {x: 0.48693237, y: 0.35567474}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8539dc182b4a928479bdc0e209e3fe69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c6a05276fea743641ae797aeac8222a7
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
