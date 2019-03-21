@@ -21,7 +21,12 @@ public class MainMenuScript : MonoBehaviour
 
     private void Start()
     {
-        if(sm == null) sm = new ScoreManager();
+        sm = FindObjectOfType<ScoreManager>();
+        if (sm == null)
+        {
+            print("SM == NULL");
+            sm = new ScoreManager();
+        }
         UpdateHighScore();
          bgStartPosition = bgTransform.position;
         StartCoroutine(AnimateBG(bgTransform, bgStartPosition, bgEndPosition, bgMoveDuration, beginMoveTime));
@@ -34,8 +39,8 @@ public class MainMenuScript : MonoBehaviour
 
     void UpdateHighScore()
     {
-        //Highscore hs = sm.LoadHighscoreFromJson();
-        //hsTextObj.GetComponent<Text>().text = (hs.Name +" "+ hs.Score);
+        Highscore hs = sm.LoadHighscoreFromJson();
+        hsTextObj.GetComponent<Text>().text = (hs.Name +" "+ hs.Score);
     }
 
 
