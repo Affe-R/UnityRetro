@@ -44,7 +44,7 @@ public class LanderCollision : MonoBehaviour
                 PlatformComponent pc = col.gameObject.GetComponentInParent<PlatformComponent>(); ;
                 
                 int PlatformScore = pc.ScoreValue;
-                scoreManager.AddScore(PlatformScore);
+                // scoreManager.AddScore(PlatformScore);
 
                 ScoreSystem.GetInstance().AddToScore(PlatformScore);
 

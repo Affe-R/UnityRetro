@@ -43,6 +43,7 @@ public class ScoreSystem
     public void AddToScore(int value)
     {
         currentScore += value;
+        NewScore?.Invoke(currentScore);
         // OnNewScore.Invoke(currentScore);
     }
 
