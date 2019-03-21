@@ -128,7 +128,7 @@ MonoBehaviour:
   thrustForceDown: 10
   thrustForceRotate: 1
   fuelText: {fileID: 0}
-  startFuel: 750
+  startFuel: 500
   FuelImage: {fileID: 0}
 --- !u!114 &7320657224689991947
 MonoBehaviour:
@@ -222,7 +222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.87, y: 1.8}
+  m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &373426233
 MonoBehaviour:
