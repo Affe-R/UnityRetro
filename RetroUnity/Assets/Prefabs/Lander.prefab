@@ -128,7 +128,7 @@ MonoBehaviour:
   thrustForceDown: 10
   thrustForceRotate: 1
   fuelText: {fileID: 0}
-  startFuel: 750
+  startFuel: 500
   FuelImage: {fileID: 0}
 --- !u!114 &7320657224689991947
 MonoBehaviour:
