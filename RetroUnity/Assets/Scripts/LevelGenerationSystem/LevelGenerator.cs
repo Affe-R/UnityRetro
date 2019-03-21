@@ -84,7 +84,6 @@ public class LevelGenerator : MonoBehaviour
     Vector2[] CreatePoints()
     {
         List<Vector2> points = new List<Vector2>();
-        points.Add(Vector2.zero);
         points.Add(new Vector2(0, Random.Range(0, WidthHeight.y)));
 
         for (int i = 0; i < platforms.Length; i++)
@@ -110,7 +109,6 @@ public class LevelGenerator : MonoBehaviour
         }
 
         points.Add(new Vector2(WidthHeight.x, Random.Range(0, WidthHeight.y)));
-        points.Add(new Vector2(WidthHeight.x, 0));
 
         this.points = points;
 
