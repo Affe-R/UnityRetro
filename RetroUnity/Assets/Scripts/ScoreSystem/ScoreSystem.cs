@@ -49,7 +49,12 @@ public class ScoreSystem
 
     public bool CheckIfNewHighscore()
     {
-        return GetHighscore() < currentScore;
+        bool newHighScore = GetHighscore() < currentScore;
+        
+        if(newHighScore)
+            NewHighscore?.Invoke(currentScore);
+
+        return newHighScore;
     }
 
     public void ResetScore()

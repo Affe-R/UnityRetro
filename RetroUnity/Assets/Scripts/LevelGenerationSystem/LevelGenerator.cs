@@ -35,6 +35,8 @@ public class LevelGenerator : MonoBehaviour
 
     public GameObject PlatformPrefab;
 
+    public int PointsMultiplier = 1;
+
     void CreatePlatforms()
     {
         float totalSpaceingLength = Spacing * (NumPlatforms);
@@ -65,7 +67,7 @@ public class LevelGenerator : MonoBehaviour
             int length = lengths[i];
             float scaledLength = (length) * SCALE;
             Vector2 position = new Vector2(currentX, Random.Range(MinHeight, WidthHeight.y));
-            float points = 1 + (NumPlatforms) - length;
+            float points = (1 + (NumPlatforms) - length) * PointsMultiplier;
 
             platforms[i] = new Platform(scaledLength, position, (int)points);
             currentX += scaledLength + Spacing;

@@ -8,6 +8,9 @@ public class SyncRotationComponent : MonoBehaviour
 
     void Update()
     {
+        if(!Target)
+            Target = FindObjectOfType<LanderController>()?.transform;
+
         if(Target)
             transform.rotation = Target.rotation;
     }
