@@ -44,7 +44,10 @@ public class LanderCollision : MonoBehaviour
             onSuccesfulLanding.Invoke();
         }
         else
+        {
             Explode();
+            scoreManager.CheckNewHighscore();
+        }
     }
 
     bool IsShipUpright()
@@ -106,6 +109,6 @@ public class LanderCollision : MonoBehaviour
         onCrash.Invoke();
 
         Instantiate(explosion, transform.position, transform.rotation);// = Quaternion.identity);   // sets rotation to 0
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 }
