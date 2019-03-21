@@ -40,8 +40,6 @@ public class ScoreManager : MonoBehaviour
         DynamicGI.UpdateEnvironment();
         filePath = Path.Combine(Application.dataPath, "save.json");
 
-        AddScore(1200);
-
         highestScore = LoadHighscoreFromJson();
 
         UpdateScoreText();
