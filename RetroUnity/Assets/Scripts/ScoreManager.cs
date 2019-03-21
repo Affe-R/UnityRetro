@@ -102,8 +102,6 @@ public class ScoreManager : MonoBehaviour
 
     public void ResetScore()
     {
-        Score = 0;
-        PlayerPrefs.SetInt("Score", Score);
-
+        PlayerPrefs.SetInt("Score", 0);
     }
 }
