@@ -41,10 +41,12 @@ public class MainMenuScript : MonoBehaviour
     void UpdateHighScore()
     {
         //int scr =PlayerPrefs.GetInt("score", 0);
-        
+        int scr = ScoreSystem.GetInstance().GetHighscore();
+        string name = ScoreSystem.GetInstance().GetHighscoreHolder();
         Highscore hs = LoadHighscoreFromJson();
         //Highscore hs = sm.LoadHighscoreFromJson();
-        hsTextObj.GetComponent<Text>().text = (hs.Name + " " + hs.Score);
+        hsTextObj.GetComponent<Text>().text = (name + " " + scr);
+        ScoreSystem.GetInstance().ResetScore();
     }
 
     public Highscore LoadHighscoreFromJson()
