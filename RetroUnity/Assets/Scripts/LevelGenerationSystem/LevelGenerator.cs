@@ -51,27 +51,30 @@ public class LevelGenerator : MonoBehaviour
             lengths.Add(i + 1);
         }
 
+        // Randomize lengths in list
         for (int i = 0; i < lengths.Count; i++)
         {
             int length = lengths[i];
             lengths.RemoveAt(i);
-            lengths.Insert(Random.Range(0, lengths.Count - 1), length);
+            lengths.Insert((int)Random.Range(0, (float)lengths.Count), length);
         }
 
+        // Create the platforms
         for (int i = 0; i < NumPlatforms; i++)
         {
             int length = lengths[i];
             float scaledLength = (length) * SCALE;
             Vector2 position = new Vector2(currentX, Random.Range(MinHeight, WidthHeight.y));
-            float points = (NumPlatforms) - length;
+            float points = 1 + (NumPlatforms) - length;
 
             platforms[i] = new Platform(scaledLength, position, (int)points);
             currentX += scaledLength + Spacing;
         }
 
+        // Instantiate the platform prefabs
         for (int i = 0; i < platforms.Length; i++)
         {
-            GameObject platform = Instantiate(PlatformPrefab, (Vector2)transform.position - WidthHeight * .5f + platforms[i].Position, Quaternion.identity);
+            GameObject platform = Instantiate(PlatformPrefab, (Vector2)transform.position - WidthHeight * .5f + (platforms[i].Position + Vector2.right * platforms[i].Length / 2), Quaternion.identity);
             PlatformComponent pc = platform.GetComponent<PlatformComponent>();
             pc.SetValue(platforms[i].Points);
             pc.SetLength(platforms[i].Length);
@@ -81,7 +84,7 @@ public class LevelGenerator : MonoBehaviour
     Vector2[] CreatePoints()
     {
         List<Vector2> points = new List<Vector2>();
-        points.Add(new Vector2(0, 0));
+        points.Add(new Vector2(0, Random.Range(0, WidthHeight.y)));
 
         for (int i = 0; i < platforms.Length; i++)
         {
@@ -105,7 +108,7 @@ public class LevelGenerator : MonoBehaviour
             points.Add(platforms[i].Position + Vector2.right * platforms[i].Length);
         }
 
-        points.Add(new Vector2(WidthHeight.x, 0));
+        points.Add(new Vector2(WidthHeight.x, Random.Range(0, WidthHeight.y)));
 
         this.points = points;
 
