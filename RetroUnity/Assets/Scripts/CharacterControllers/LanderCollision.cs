@@ -25,28 +25,36 @@ public class LanderCollision : MonoBehaviour
 
     private Vector2 velocity;
 
+    private bool landed = false;
+
     // Start is called before the first frame update
     void Start()
     {
         groundCheck = GetComponent<Transform>();
         rb2d = GetComponent<Rigidbody2D>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.contacts[0].normal == Vector2.up && velocity.magnitude < maxLandingVelocityMagnitude && IsShipUpright())
+        if(!landed)
         {
-            PlatformComponent pc = col.gameObject.GetComponentInParent<PlatformComponent>(); ;
-            
-            int PlatformScore = pc.ScoreValue;
-            scoreManager.AddScore(PlatformScore);
+            if (col.contacts[0].normal == Vector2.up && velocity.magnitude < maxLandingVelocityMagnitude && IsShipUpright())
+            {
+                PlatformComponent pc = col.gameObject.GetComponentInParent<PlatformComponent>(); ;
+                
+                int PlatformScore = pc.ScoreValue;
+                scoreManager.AddScore(PlatformScore);
 
-            onSuccesfulLanding.Invoke();
-        }
-        else
-        {
-            Explode();
-            scoreManager.CheckNewHighscore();
+                ScoreSystem.GetInstance().AddToScore(PlatformScore);
+
+                onSuccesfulLanding.Invoke();
+            }
+            else
+            {
+                Explode();
+                scoreManager.CheckNewHighscore();
+            }
         }
     }
 

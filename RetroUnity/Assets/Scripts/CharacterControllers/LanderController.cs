@@ -42,7 +42,12 @@ public class LanderController : MonoBehaviour
     void FixedUpdate()
     {
         if(FuelImage)
-            FuelImage.fillAmount = fuel / startFuel;
+            FuelImage.fillAmount = GetFuelPercentage();
+    }
+
+    public float GetFuelPercentage()
+    {
+        return fuel / startFuel;
     }
     
     void Update()
