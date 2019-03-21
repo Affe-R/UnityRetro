@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlatformComponent : MonoBehaviour
 {
+    public int ScoreValue;
     Text text;
     GameObject platform;
     
@@ -17,7 +18,10 @@ public class PlatformComponent : MonoBehaviour
     public void SetValue(int value)
     {
         if(text)
+        {
+            ScoreValue = value;
             text.text = value + "x";
+        }
     }
 
     public void SetLength(float length)
