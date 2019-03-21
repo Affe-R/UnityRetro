@@ -136,7 +136,8 @@ GameObject:
   - component: {fileID: 539857073}
   - component: {fileID: 539857074}
   - component: {fileID: 134313966728890773}
-  m_Layer: 0
+  - component: {fileID: 3897003067904347390}
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   maxWalkableAngle: 24.4
   maxDescendableAngle: 24.5
   rayCountHorizontal: 6
@@ -277,14 +278,13 @@ MonoBehaviour:
   groundAcceleration: 0.005
   airAcceleration: 0.1
   jumpHeight: 5
-  jumpTimeApex: 0.3
-  maxWalkAngle: 24.4
-  maxDescentAngle: 24.5
+  jumpTimeApex: 0.4
+  maxWalkAngle: 45
+  maxDescentAngle: 45
   defaultDirectionRight: 1
   characterTint: {r: 1, g: 1, b: 1, a: 1}
-  jumpSound: {fileID: 0}
-  buttonPressSound: {fileID: 0}
-  canPlayButton: 1
+  gravity: 0
+  jumpSound: {fileID: 8300000, guid: 58ac0c9c683feba499a4453993cdc282, type: 3}
 --- !u!114 &539857073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,8 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f76ffde8adbdb24d9bea4be733318d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reach: 2
-  offset: {x: 0, y: 0, z: 0}
+  Reach: 1
+  offset: {x: 0, y: 1, z: 0}
 --- !u!114 &539857074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,14 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Buttons:
-  - InputName: 
-    OnPressed:
-      m_PersistentCalls:
-        m_Calls: []
-      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-  Keys:
-  - Key: 102
+  - InputName: Interact P1
     OnPressed:
       m_PersistentCalls:
         m_Calls:
@@ -336,6 +329,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+  Keys: []
 --- !u!95 &134313966728890773
 Animator:
   serializedVersion: 3
@@ -355,3 +349,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3897003067904347390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7039760239280072427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1f6a86c4233a142be614bef20cbf2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
