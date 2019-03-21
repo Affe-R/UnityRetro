@@ -98,10 +98,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 539857074, guid: 20e6ee87c90248b4f9d91901a909dda3, type: 3}
-      propertyPath: Buttons.Array.data[0].InputName
-      value: Interact P2
-      objectReference: {fileID: 0}
+    - target: {fileID: 7039760239280072426, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 74d59727a543ded45aa8ec75b6546442,
+        type: 3}
     - target: {fileID: 7325035741001743896, guid: 20e6ee87c90248b4f9d91901a909dda3,
         type: 3}
       propertyPath: jumpInput
@@ -117,6 +119,15 @@ PrefabInstance:
       propertyPath: verticalInput
       value: Vertical P2
       objectReference: {fileID: 0}
+    - target: {fileID: 539857074, guid: 20e6ee87c90248b4f9d91901a909dda3, type: 3}
+      propertyPath: Buttons.Array.data[0].InputName
+      value: Interact P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 134313966728890773, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 44d27c58991931d4ca81f3ac36e220ad, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20e6ee87c90248b4f9d91901a909dda3, type: 3}
 --- !u!4 &3944654265983298238 stripped
