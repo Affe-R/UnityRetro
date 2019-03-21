@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -11,15 +12,23 @@ public class MainMenuScript : MonoBehaviour
     public float beginMoveTime;
     public float bgMoveDuration;
     [SerializeField]MouseWidget mouseWidget;
-    
 
+    [SerializeField] Transform hsTextObj;
+    ScoreManager sm;
     //Vector3 mousePosition;
     //Vector3 mouseLastPosition;
     //Vector3 mouseDelta;
 
     private void Start()
     {
-        bgStartPosition = bgTransform.position;
+        sm = FindObjectOfType<ScoreManager>();
+        if (sm == null)
+        {
+            print("SM == NULL");
+            sm = new ScoreManager();
+        }
+        UpdateHighScore();
+         bgStartPosition = bgTransform.position;
         StartCoroutine(AnimateBG(bgTransform, bgStartPosition, bgEndPosition, bgMoveDuration, beginMoveTime));
     }
 
@@ -28,10 +37,12 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("Playing", LoadSceneMode.Single);
     }
 
-    public void ShowHighScores()
+    void UpdateHighScore()
     {
-        //Do Highscore logic
+        Highscore hs = sm.LoadHighscoreFromJson();
+        hsTextObj.GetComponent<Text>().text = (hs.Name +" "+ hs.Score);
     }
+
 
     public void Quit()
     {
