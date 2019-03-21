@@ -6833,6 +6833,16 @@ PrefabInstance:
       propertyPath: OnOutsideBounds.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7320657224689991944, guid: ccda19ab9d87275488b4f287248db93c,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320657224689991944, guid: ccda19ab9d87275488b4f287248db93c,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccda19ab9d87275488b4f287248db93c, type: 3}
 --- !u!114 &294905786
