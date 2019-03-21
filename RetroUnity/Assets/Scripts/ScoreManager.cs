@@ -21,7 +21,7 @@ public class Highscore
 public class ScoreManager : MonoBehaviour
 {
     string jsonStrSerialized;
-    int Score = 0;
+    int Score;
     string ScoreDisplay;
     Highscore highestScore = new Highscore(default, default);
 
@@ -57,6 +57,8 @@ public class ScoreManager : MonoBehaviour
 
     public void CheckNewHighscore()
     {
+        ResetScore();
+
         if (Score >= highestScore.Score)
         {
             NameInput.gameObject.active = true;
@@ -69,9 +71,6 @@ public class ScoreManager : MonoBehaviour
             highestScore = new Highscore(NameInput.text, Score);
         else
             highestScore = new Highscore("Pilot", Score);
-
-        Score = 0;
-        PlayerPrefs.SetInt("Score", Score);
 
         SaveHighscoreToJson(highestScore);
         UpdateHighScoreText();
@@ -95,9 +94,16 @@ public class ScoreManager : MonoBehaviour
         File.WriteAllText(filePath, HighscoreStr);
     }
 
-    Highscore LoadHighscoreFromJson()
+    public Highscore LoadHighscoreFromJson()
     {
         jsonStrSerialized = File.ReadAllText(filePath);
         return JsonUtility.FromJson<Highscore>(File.ReadAllText(filePath));
+    }
+
+    public void ResetScore()
+    {
+        Score = 0;
+        PlayerPrefs.SetInt("Score", Score);
+
     }
 }
