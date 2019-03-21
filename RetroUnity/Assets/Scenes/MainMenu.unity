@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 214987887}
   - component: {fileID: 214987886}
   - component: {fileID: 214987889}
+  - component: {fileID: 214987890}
   m_Layer: 5
   m_Name: Play_Button
   m_TagString: Untagged
@@ -350,17 +351,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 77ccbe3e08fb3c04cada928896de8fd7, type: 2}
-        m_MethodName: Load
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 214987889}
         m_MethodName: Play
         m_Mode: 1
@@ -370,6 +360,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 214987890}
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Playing
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -507,6 +508,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &214987890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214987884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f55e9a6638f2f4aa4bbf26727737c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &272578432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1660,6 +1673,7 @@ GameObject:
   - component: {fileID: 1163487166}
   - component: {fileID: 1163487165}
   - component: {fileID: 1163487168}
+  - component: {fileID: 1163487169}
   m_Layer: 5
   m_Name: Quit_Button
   m_TagString: Untagged
@@ -1727,7 +1741,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1163487169}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -1884,6 +1898,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1163487169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163487163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1482656656ed2cf4c9b00be63e18f2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1165722948
 GameObject:
   m_ObjectHideFlags: 0
