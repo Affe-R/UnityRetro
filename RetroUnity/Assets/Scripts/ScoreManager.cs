@@ -35,8 +35,6 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
-
         DynamicGI.UpdateEnvironment();
         filePath = Path.Combine(Application.dataPath, "save.json");
 
@@ -51,6 +49,7 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int ScoreToAdd)
     {
         Score += ScoreToAdd;
+        PlayerPrefs.SetInt("Score", Score);
         UpdateScoreText();
     }
 
@@ -69,8 +68,10 @@ public class ScoreManager : MonoBehaviour
         else
             highestScore = new Highscore("Pilot", Score);
 
-        SaveHighscoreToJson(highestScore);
+        Score = 0;
+        PlayerPrefs.SetInt("Score", Score);
 
+        SaveHighscoreToJson(highestScore);
         UpdateHighScoreText();
     }
 
