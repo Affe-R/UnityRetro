@@ -35,6 +35,8 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+
         DynamicGI.UpdateEnvironment();
         filePath = Path.Combine(Application.dataPath, "save.json");
 
