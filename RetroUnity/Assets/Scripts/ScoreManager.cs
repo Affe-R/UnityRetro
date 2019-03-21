@@ -85,7 +85,7 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateScoreText()
     {
-        ScoreText.text = "Score : " + Score.ToString();
+        ScoreText.text = Score.ToString();
     }
 
     void SaveHighscoreToJson(Highscore inHighscore)
