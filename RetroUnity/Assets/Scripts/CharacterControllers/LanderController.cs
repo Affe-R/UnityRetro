@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class LanderController : MonoBehaviour
@@ -19,12 +20,16 @@ public class LanderController : MonoBehaviour
     //private GameObject muzzle;
     //private bool isThrusting;
 
+    public UnityEvent onRotateRight;
+    public UnityEvent onRotateLeft;
+    public UnityEvent onForwardThrust;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         fuel = startFuel;
-        if(fuelText)
-            fuelText.text = "Fuel: " + fuel.ToString();
+        //if(fuelText)
+        //    fuelText.text = "Fuel: " + fuel.ToString();
 
         //if (muzzleLeft)
         //    muzzleLeft.SetActive(false);
@@ -63,8 +68,8 @@ public class LanderController : MonoBehaviour
         //if (Input.GetKeyUp("right")) muzzleLeft.SetActive(false);
         //if (Input.GetKeyUp("up")) muzzleDown.SetActive(false);
 
-        if(fuelText)
-            fuelText.text = "Fuel: " + fuel.ToString();
+        //if(fuelText)
+        //    fuelText.text = "Fuel: " + fuel.ToString();
     }
 
     public void Rotate(float thrustHorizontal)
@@ -80,6 +85,15 @@ public class LanderController : MonoBehaviour
             //    muzzleLeft.SetActive(true);
             //if (thrustHorizontal < 0)
             //    muzzleRight.SetActive(true);
+
+            if (thrustHorizontal > 0)
+            {
+                onRotateRight.Invoke();
+            }
+            else
+            {
+                onRotateLeft.Invoke();
+            }
         }
     }
 
@@ -90,6 +104,8 @@ public class LanderController : MonoBehaviour
             rb2d.AddRelativeForce(new Vector2(0, thrustForceDown));
             fuel--;
             //muzzleDown.SetActive(true);
+
+            onForwardThrust.Invoke();
         }
     }
 
