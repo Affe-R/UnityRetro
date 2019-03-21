@@ -38,13 +38,12 @@ public class ScoreManager : MonoBehaviour
         DynamicGI.UpdateEnvironment();
         filePath = Path.Combine(Application.dataPath, "save.json");
 
-        HighscoreArray = new Highscore[3];
+        AddScore(1200);
 
-        highestScore = LoadHighscoreFromJson(0);
+        highestScore = LoadHighscoreFromJson();
+
         UpdateScoreText();
         UpdateHighScoreText();
-
-        AddScore(1 + highestScore.Score);
 
         NameInput.gameObject.active = false;
     }
@@ -57,9 +56,9 @@ public class ScoreManager : MonoBehaviour
 
     public void CheckNewHighscore()
     {
-        if (Score > highestScore.Score)
+        if (Score >= highestScore.Score)
         {
-            NameInput.gameObject.active = true;           
+            NameInput.gameObject.active = true;
         }
     }
 
@@ -78,7 +77,7 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateHighScoreText()
     {
-        Highscore TEMP = LoadHighscoreFromJson(0);
+        Highscore TEMP = LoadHighscoreFromJson();
         RecordText.text = TEMP.Name + " : " + TEMP.Score.ToString();
     }
 
@@ -89,17 +88,13 @@ public class ScoreManager : MonoBehaviour
 
     void SaveHighscoreToJson(Highscore inHighscore)
     {
-        HighscoreArray[0] = highestScore;
-        HighscoreArray[1] = new Highscore("Pilot", 0);
-        HighscoreArray[2] = new Highscore("Pilot", 0);
-        string HighscoreStr = JsonUtility.ToJson(HighscoreArray);
+        string HighscoreStr = JsonUtility.ToJson(highestScore);
         File.WriteAllText(filePath, HighscoreStr);
     }
 
-    Highscore LoadHighscoreFromJson(int Index)
+    Highscore LoadHighscoreFromJson()
     {
         jsonStrSerialized = File.ReadAllText(filePath);
-        Highscore[] TempArr = JsonUtility.FromJson<Highscore[]>(File.ReadAllText(filePath));
-        return TempArr[Index];
+        return JsonUtility.FromJson<Highscore>(File.ReadAllText(filePath));
     }
 }
