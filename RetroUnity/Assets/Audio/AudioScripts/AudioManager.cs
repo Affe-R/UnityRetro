@@ -7,10 +7,6 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource sfxSource;
     public AudioSource musicSource;
-    public AudioSource loseNoise;
-
-    [SerializeField] private AudioClip[] bounceyFun;
-    
     public static AudioManager instance = null;
 
     public float lowPitchRange = .9f;
@@ -40,17 +36,6 @@ public class AudioManager : MonoBehaviour
         sfxSource.pitch = randomPitch;
         sfxSource.clip = clips[randomIndex];
         sfxSource.Play();
-    }
-
-    public void PlayWhiteNoise()
-    {
-        loseNoise.Play();
-    }
-
-    public void playBounceyFunOne()
-    {
-
-        sfxSource.PlayOneShot(bounceyFun[1]);
     }
 
 }

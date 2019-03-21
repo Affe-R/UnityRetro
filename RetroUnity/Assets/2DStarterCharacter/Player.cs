@@ -45,12 +45,6 @@ public class Player : MonoBehaviour
     Controller2D controller;
     Animator animator;
     SpriteRenderer spriteRenderer;
-    private AudioManager _audioManager;
-
-    private void Awake()
-    {
-        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -93,10 +87,6 @@ public class Player : MonoBehaviour
             animator.SetBool("IsJumping", true);
             wantsToJump = false;
             // JUMP SFX:
-            
-            //if (_audioManager != null)
-            //    _audioManager.PlayWhiteNoise();
-
             AudioManager.instance.RandomizeSfx(jumpSound);
             //AudioManager.instance.PlaySingle(jumpSound);
         }
@@ -117,7 +107,5 @@ public class Player : MonoBehaviour
             spriteRenderer.flipX = !defaultDirectionRight;
         }
     }
-
-    
 
 }
