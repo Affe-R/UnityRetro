@@ -2844,7 +2844,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: df3debae4f2c1dc4985760b9a2d226c6,
+      objectReference: {fileID: 21300002, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     - target: {fileID: 8573775090531931829, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -2961,7 +2961,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnStopInteracting.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: df3debae4f2c1dc4985760b9a2d226c6,
+      objectReference: {fileID: 21300002, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     - target: {fileID: 3952425148436061101, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -2992,7 +2992,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: c74f4da51fb2c6c488e156c86c46aec6,
+      objectReference: {fileID: 21300000, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49f5d1297b9f534396009cd34adca15, type: 3}
@@ -3091,7 +3091,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: eac8d59b7fef0d64597a14058105cc4c,
+      objectReference: {fileID: 21300010, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     - target: {fileID: 8573775090531931829, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -3208,7 +3208,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 268e10d225e1a8f4887f47c64b3257c4,
+      objectReference: {fileID: 21300008, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     - target: {fileID: 3952425148436061101, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -3239,7 +3239,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnStopInteracting.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: eac8d59b7fef0d64597a14058105cc4c,
+      objectReference: {fileID: 21300010, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49f5d1297b9f534396009cd34adca15, type: 3}
@@ -3338,7 +3338,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 326a611994bf7534e817d680b5deeabb,
+      objectReference: {fileID: 21300006, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     - target: {fileID: 8573775090531931829, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -3455,7 +3455,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnStopInteracting.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 326a611994bf7534e817d680b5deeabb,
+      objectReference: {fileID: 21300006, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     - target: {fileID: 3952425148436061101, guid: c49f5d1297b9f534396009cd34adca15,
         type: 3}
@@ -3486,7 +3486,7 @@ PrefabInstance:
         type: 3}
       propertyPath: OnInteracted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 21300000, guid: 7d641f410b8b1684bb82cafcc3fa5c23,
+      objectReference: {fileID: 21300004, guid: 65079efc6606ec342b7f28de8697a7bc,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49f5d1297b9f534396009cd34adca15, type: 3}
