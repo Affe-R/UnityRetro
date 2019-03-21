@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -11,14 +12,20 @@ public class MainMenuScript : MonoBehaviour
     public float beginMoveTime;
     public float bgMoveDuration;
     [SerializeField]MouseWidget mouseWidget;
-    
 
+    [SerializeField] Transform highScoreField;
+    [SerializeField]GameObject highScorePrefab;
+    string currentHighScore;
+
+    Transform[] activeHS;
     //Vector3 mousePosition;
     //Vector3 mouseLastPosition;
     //Vector3 mouseDelta;
 
     private void Start()
     {
+        activeHS = new Transform[4];
+        UpdateHighscore();
         bgStartPosition = bgTransform.position;
         StartCoroutine(AnimateBG(bgTransform, bgStartPosition, bgEndPosition, bgMoveDuration, beginMoveTime));
     }
@@ -28,9 +35,9 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene("Playing", LoadSceneMode.Single);
     }
 
-    public void ShowHighScores()
+    public void UpdateHighscore()
     {
-        //Do Highscore logic
+        highScoreField.GetComponent<Text>().text = "PHD:150125";
     }
 
     public void Quit()
