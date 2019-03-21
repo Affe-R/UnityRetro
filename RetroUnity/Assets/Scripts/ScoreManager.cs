@@ -57,6 +57,9 @@ public class ScoreManager : MonoBehaviour
 
     public void CheckNewHighscore()
     {
+        Score = 0;
+        PlayerPrefs.SetInt("Score", Score);
+
         if (Score >= highestScore.Score)
         {
             NameInput.gameObject.active = true;
@@ -69,9 +72,6 @@ public class ScoreManager : MonoBehaviour
             highestScore = new Highscore(NameInput.text, Score);
         else
             highestScore = new Highscore("Pilot", Score);
-
-        Score = 0;
-        PlayerPrefs.SetInt("Score", Score);
 
         SaveHighscoreToJson(highestScore);
         UpdateHighScoreText();
