@@ -375,6 +375,20 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7325035740539080532, guid: a28e9f57f6718bc4e96427273e477be4,
+        type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 58ac0c9c683feba499a4453993cdc282, type: 3}
+    - target: {fileID: 7325035740743766896, guid: a28e9f57f6718bc4e96427273e477be4,
+        type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 58ac0c9c683feba499a4453993cdc282, type: 3}
+    - target: {fileID: 1147751328, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1708382140368909322, guid: a28e9f57f6718bc4e96427273e477be4,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -5857,10 +5871,6 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1147751328, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1441862786, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
       propertyPath: m_SortingOrder
       value: 0
@@ -5877,16 +5887,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7325035740539080532, guid: a28e9f57f6718bc4e96427273e477be4,
+    - target: {fileID: 219129799973887982, guid: a28e9f57f6718bc4e96427273e477be4,
         type: 3}
-      propertyPath: jumpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 58ac0c9c683feba499a4453993cdc282, type: 3}
-    - target: {fileID: 7325035740743766896, guid: a28e9f57f6718bc4e96427273e477be4,
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468769151796481936, guid: a28e9f57f6718bc4e96427273e477be4,
         type: 3}
-      propertyPath: jumpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 58ac0c9c683feba499a4453993cdc282, type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a28e9f57f6718bc4e96427273e477be4, type: 3}
 --- !u!1 &230158479

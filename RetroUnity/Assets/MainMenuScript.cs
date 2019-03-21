@@ -46,6 +46,7 @@ public class MainMenuScript : MonoBehaviour
         Highscore hs = LoadHighscoreFromJson();
         //Highscore hs = sm.LoadHighscoreFromJson();
         hsTextObj.GetComponent<Text>().text = (name + " " + scr);
+        ScoreSystem.GetInstance().ResetScore();
     }
 
     public Highscore LoadHighscoreFromJson()
