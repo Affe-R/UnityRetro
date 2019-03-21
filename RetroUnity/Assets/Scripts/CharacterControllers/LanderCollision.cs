@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class LanderCollision : MonoBehaviour
 {
+    [SerializeField]
+    private ScoreManager scoreManager;
     public LayerMask whatLayer;
     public LayerMask Mountains;
     public Transform groundCheck;
@@ -31,9 +33,16 @@ public class LanderCollision : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col)
-    {    
-        if(col.contacts[0].normal == Vector2.up && velocity.magnitude < maxLandingVelocityMagnitude && IsShipUpright())
+    {
+        if (col.contacts[0].normal == Vector2.up && velocity.magnitude < maxLandingVelocityMagnitude && IsShipUpright())
+        {
+            PlatformComponent pc = col.gameObject.GetComponentInParent<PlatformComponent>(); ;
+            
+            int PlatformScore = pc.ScoreValue;
+            scoreManager.AddScore(PlatformScore);
+
             onSuccesfulLanding.Invoke();
+        }
         else
             Explode();
     }

@@ -27,6 +27,7 @@ public class ScoreManager : MonoBehaviour
     string ScoreDisplay;
     Highscore highestScore = new Highscore(default, default);
 
+    public InputField NameInput;
     public Text ScoreText;
     public Text RecordText;
 
@@ -37,33 +38,47 @@ public class ScoreManager : MonoBehaviour
         DynamicGI.UpdateEnvironment();
         filePath = Path.Combine(Application.dataPath, "save.json");
 
+        AddScore(100);
+
         if (LoadHighscoreFromJson() == null)
             SaveHighscoreToJson(highestScore);
-        
+
         highestScore = LoadHighscoreFromJson();
+        UpdateScoreText();
         UpdateHighScoreText();
+        NameInput.gameObject.active = false;
     }
 
     public void AddScore(int ScoreToAdd)
     {
         Score += ScoreToAdd;
         UpdateScoreText();
-        CheckNewHighscore(Score);
+        CheckNewHighscore();
     }
 
-    void CheckNewHighscore(int ScoreToCheck)
+    public void CheckNewHighscore()
     {
-        if (ScoreToCheck >= highestScore.Score)
+        if (Score > highestScore.Score)
         {
-            highestScore = new Highscore("Highest", ScoreToCheck);
-
-            SaveHighscoreToJson(highestScore);
-
-            highestScore.Score = ScoreToCheck;
-
-            UpdateHighScoreText();
+            NameInput.gameObject.active = true;
+            
         }
     }
+
+    public void SetNewHighscore()
+    {
+        if (NameInput.text != "")
+            highestScore = new Highscore(NameInput.text, Score);
+        else
+            highestScore = new Highscore("Pilot", Score);
+
+        SaveHighscoreToJson(highestScore);
+
+        highestScore.Score = Score;
+
+        UpdateHighScoreText();
+    }
+
 
     void UpdateHighScoreText()
     {
