@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8089408527149775341}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player2b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,6 +42,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039760239280072427, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7039760239280072431, guid: 20e6ee87c90248b4f9d91901a909dda3,
         type: 3}
@@ -101,6 +106,31 @@ PrefabInstance:
     - target: {fileID: 539857074, guid: 20e6ee87c90248b4f9d91901a909dda3, type: 3}
       propertyPath: Buttons.Array.data[0].InputName
       value: Interact P2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271879675294793661, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610133819068957811, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1723670054830292528, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3441897491081445916, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5952433717451028117, guid: 20e6ee87c90248b4f9d91901a909dda3,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 1280
       objectReference: {fileID: 0}
     - target: {fileID: 7325035741001743896, guid: 20e6ee87c90248b4f9d91901a909dda3,
         type: 3}
