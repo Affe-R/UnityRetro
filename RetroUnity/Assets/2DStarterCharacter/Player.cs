@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
         }
 
         controller.Move(velocity * Time.deltaTime);
-        animator.SetBool("isGrounded", controller.collisionInfo.below);
+        //animator.SetBool("isGrounded", controller.collisionInfo.below);
         animator.SetFloat("Speed", Mathf.Abs(velocity.x));
         if (velocity.x > 0)
         {
