@@ -59,7 +59,7 @@ public class ScoreManager : MonoBehaviour
     {
         ResetScore();
 
-        if (Score >= highestScore.Score)
+        if (Score >= highestScore.Score && NameInput)
         {
             NameInput.gameObject.active = true;
         }
@@ -79,13 +79,14 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateHighScoreText()
     {
+        filePath = Path.Combine(Application.dataPath, "save.json");
         Highscore TEMP = LoadHighscoreFromJson();
         RecordText.text = TEMP.Name + " : " + TEMP.Score.ToString();
     }
 
     void UpdateScoreText()
     {
-        ScoreText.text = Score.ToString();
+        ScoreText.text = "Score : " + Score.ToString();
     }
 
     void SaveHighscoreToJson(Highscore inHighscore)

@@ -28,7 +28,7 @@ public class MainMenuScript : MonoBehaviour
         //     print("SM == NULL");
         //     sm = new ScoreManager();
         // }
-        UpdateHighScore();
+        //UpdateHighScore();
         bgStartPosition = bgTransform.position;
         StartCoroutine(AnimateBG(bgTransform, bgStartPosition, bgEndPosition, bgMoveDuration, beginMoveTime));
     }
@@ -86,5 +86,4 @@ public class MainMenuScript : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
-
 }
