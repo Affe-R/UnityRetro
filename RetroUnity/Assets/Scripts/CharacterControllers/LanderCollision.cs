@@ -53,7 +53,7 @@ public class LanderCollision : MonoBehaviour
             else
             {
                 Explode();
-                scoreManager.CheckNewHighscore();
+                // scoreManager.CheckNewHighscore();
             }
         }
     }

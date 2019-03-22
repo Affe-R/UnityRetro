@@ -13,6 +13,11 @@ public class UIScoreText : MonoBehaviour
         UpdateText(ScoreSystem.GetInstance().GetCurrentScore());
     }
 
+    void OnDisable()
+    {
+        ScoreSystem.GetInstance().NewScore -= UpdateText;
+    }
+
     void UpdateText(int value)
     {
         text.text = value.ToString();
