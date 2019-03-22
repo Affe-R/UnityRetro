@@ -55,6 +55,7 @@ public class LanderCollision : MonoBehaviour
                 Explode();
                 scoreManager.CheckNewHighscore();
             }
+            landed = true;
         }
     }
 
