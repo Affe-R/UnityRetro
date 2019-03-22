@@ -15,19 +15,19 @@ public class MainMenuScript : MonoBehaviour
     [SerializeField] MouseWidget mouseWidget;
 
     [SerializeField] Transform hsTextObj;
-    ScoreManager sm;
+    // ScoreManager sm;
     //Vector3 mousePosition;
     //Vector3 mouseLastPosition;
     //Vector3 mouseDelta;
 
     private void Start()
     {
-        sm = FindObjectOfType<ScoreManager>();
-        if (sm == null)
-        {
-            print("SM == NULL");
-            sm = new ScoreManager();
-        }
+        // sm = FindObjectOfType<ScoreManager>();
+        // if (sm == null)
+        // {
+        //     print("SM == NULL");
+        //     sm = new ScoreManager();
+        // }
         UpdateHighScore();
         bgStartPosition = bgTransform.position;
         StartCoroutine(AnimateBG(bgTransform, bgStartPosition, bgEndPosition, bgMoveDuration, beginMoveTime));
@@ -45,7 +45,7 @@ public class MainMenuScript : MonoBehaviour
         string name = ScoreSystem.GetInstance().GetHighscoreHolder();
         Highscore hs = LoadHighscoreFromJson();
         //Highscore hs = sm.LoadHighscoreFromJson();
-        hsTextObj.GetComponent<Text>().text = (name + " " + scr);
+        hsTextObj.GetComponent<Text>().text = (name + " " + scr.ToString());
         ScoreSystem.GetInstance().ResetScore();
     }
 
