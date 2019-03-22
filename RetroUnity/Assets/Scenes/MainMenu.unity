@@ -799,7 +799,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 135.3, y: 323.7}
+  m_AnchoredPosition: {x: 137, y: 382}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &287498185
@@ -1602,7 +1602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 135.29999, y: 308.7}
+  m_AnchoredPosition: {x: 136.99997, y: 367}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800925321
@@ -1851,7 +1851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 638.6, y: 35}
+  m_AnchoredPosition: {x: 638.6, y: 45}
   m_SizeDelta: {x: 300, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000636446
@@ -3381,6 +3381,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MouseWidget
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438689080149811, guid: 3f7b2bf0b4a73604e8e9961b8b09b9fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2752438689080149809, guid: 3f7b2bf0b4a73604e8e9961b8b09b9fe,
         type: 3}

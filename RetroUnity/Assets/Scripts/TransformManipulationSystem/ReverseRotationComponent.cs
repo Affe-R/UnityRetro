@@ -8,6 +8,11 @@ public class ReverseRotationComponent : MonoBehaviour
 
     void Update()
     {
+        if (!Target)
+        {
+            Target = FindObjectOfType<LanderController>().transform;
+        }
+
         if (Target)
             //transform.rotation = (Quaternion)Target.transform.rotation;
             transform.localRotation = new Quaternion(Target.localRotation.x * -1.0f,
