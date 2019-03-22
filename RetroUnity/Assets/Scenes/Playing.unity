@@ -9602,7 +9602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7490196, g: 0.13333334, b: 0.11764707, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -14271,6 +14271,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 418.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763489140063043423, guid: 3047636f9bda84d499335495e4fc7edc,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763489140063043423, guid: 3047636f9bda84d499335495e4fc7edc,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763489140063043423, guid: 3047636f9bda84d499335495e4fc7edc,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829165235282829327, guid: 3047636f9bda84d499335495e4fc7edc,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.21176471
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3047636f9bda84d499335495e4fc7edc, type: 3}
